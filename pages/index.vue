@@ -1,8 +1,8 @@
 <template>
 	<div class="page">
 		<Intro />
-		<Gallery />
 		<About />
+		<Gallery />
 		<Map />
 		<Contact />
 	</div>

@@ -1,7 +1,11 @@
 <template>
 	<section class="gallery">
 		<div class="grid">
-			<p>list of images</p>
+			<CoolLightBox :items="items" :index="index" @close="index = null"> </CoolLightBox>
+
+			<div class="images_wrapper">
+				<img v-for="(image, imageIndex) in items" :key="imageIndex" :src="image" @click="index = imageIndex" />
+			</div>
 		</div>
 		<div class="info">
 			<h2>explore the island</h2>
@@ -12,9 +16,17 @@
 </template>
 
 <script>
-// import CoolLightBox from 'vue-cool-lightbox'
-// import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
-export default {}
+import CoolLightBox from 'vue-cool-lightbox'
+import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+export default {
+	components: {
+		CoolLightBox,
+	},
+	data: () => ({
+		index: null,
+		items: ['gallery1.jpg', 'gallery2.jpg', 'gallery3.jpg'],
+	}),
+}
 </script>
 
 <style lang="scss" scoped>
@@ -24,15 +36,36 @@ export default {}
 	padding: 6rem;
 	background: $light-grey;
 
-	.info {
-		width: 400px;
-		background: $dark-grey;
-		padding: 2rem;
-		h2 {
-			margin: 2rem 0;
+	.grid {
+		width: 50%;
+		.images_wrapper {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				width: 16rem;
+				margin-right: 1rem;
+			}
 		}
+	}
+
+	.info {
+		width: fit-content;
+		padding: 4rem;
+		background: $dark-grey;
+
 		p {
+			max-width: 25rem;
 			margin-bottom: 2rem;
+			&:last-child {
+				margin: 0;
+			}
+			span {
+				color: $black;
+				font-weight: 700;
+			}
 		}
 	}
 }

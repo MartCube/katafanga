@@ -24,7 +24,7 @@ export default {
 	},
 	data: () => ({
 		index: null,
-		items: ['gallery1.jpg', 'gallery2.jpg', 'gallery3.jpg'],
+		items: ['gallery/gallery1.jpg', 'gallery/gallery2.jpg', 'gallery/gallery3.jpg'],
 	}),
 }
 </script>
@@ -38,14 +38,16 @@ export default {
 
 	.grid {
 		width: 50%;
+		position: relative;
 		.images_wrapper {
-			width: 100%;
 			height: 100%;
+			position: absolute;
+			right: 0;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			img {
-				width: 16rem;
+				width: 26rem;
 				margin-right: 1rem;
 			}
 		}

@@ -1,15 +1,17 @@
 <template>
-	<section class="contact">
+	<section id="contact">
 		<h2>contact us</h2>
 		<p>Get in touch for more information about Katafanga island</p>
-		<ValidationObserver ref="form" autocomplete="off" class="form" tag="form" @submit.prevent="Submit()">
-			<Input id="firstName" placeholder="First Name" rules="required" @getValue="storeValue" />
-			<Input id="lastName" placeholder="Last Name" rules="required" @getValue="storeValue" />
-			<Input id="email" placeholder="Email" rules="email|required" @getValue="storeValue" />
-			<Input id="number" placeholder="Phone Number" rules="required" @getValue="storeValue" />
-			<Textarea id="message" placeholder="Message" rules="required" @getValue="storeValue" />
-			<button>Submit</button>
-		</ValidationObserver>
+		<form ref="form" autocomplete="off" @submit.prevent="Submit()">
+			<ValidationObserver ref="validation" class="form" tag="div">
+				<Input id="firstName" placeholder="First Name" rules="required" @getValue="storeValue" />
+				<Input id="lastName" placeholder="Last Name" rules="required" @getValue="storeValue" />
+				<Input id="email" placeholder="Email" rules="email|required" @getValue="storeValue" />
+				<Input id="number" placeholder="Phone Number" @getValue="storeValue" />
+				<Textarea id="message" placeholder="Message" rules="required" @getValue="storeValue" />
+				<button>Submit</button>
+			</ValidationObserver>
+		</form>
 		<div class="policy">
 			<span>Copyright © 2022 Katafanga</span>
 		</div>
@@ -18,34 +20,29 @@
 
 <script>
 import { ValidationObserver } from 'vee-validate'
-// import * as emailjs from '@emailjs/browser'
+import * as emailjs from '@emailjs/browser'
 export default {
 	components: {
 		ValidationObserver,
 	},
 	data: () => ({
-		form: {
-			firstName: '',
-			lastName: '',
-			email: '',
-			number: '',
-			message: '',
-		},
 		loading: false,
 	}),
 	methods: {
 		async Submit() {
-			const isValid = await this.$refs.form.validate()
+			const isValid = await this.$refs.validation.validate()
 			if (!isValid) return
 			console.log('valid')
-			// emailjs.sendForm('default_service', 'service_l807s5g', this.$refs.form, 'O9kaL-kw7T0WfpVbt').then(
-			// 	(result) => {
-			// 		console.log('SUCCESS!', result.text)
-			// 	},
-			// 	(error) => {
-			// 		console.log('FAILED...', error.text)
-			// 	},
-			// )
+			console.log(this.$refs.form)
+
+			emailjs.sendForm('default_service', 'katafanga', this.$refs.form, 'usk4gEtUUChwNhggm').then(
+				(result) => {
+					console.log('SUCCESS!', result.text)
+				},
+				(error) => {
+					console.log('FAILED...', error.text)
+				},
+			)
 		},
 		storeValue(input) {
 			switch (input.name) {
@@ -76,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.contact {
+#contact {
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;

@@ -1,6 +1,6 @@
 <template>
 	<ValidationProvider v-slot="{ errors, classes }" :rules="rules" :mode="mode" tag="div" class="input_container">
-		<textarea :id="id" v-model="inputValue" :placeholder="placeholder" :name="id"></textarea>
+		<textarea :id="id" v-model="inputValue" :placeholder="placeholder" :name="id" @change="emitValue"></textarea>
 
 		<div v-if="errors.length" class="error" :class="classes">
 			{{ errors[0] }}
@@ -55,6 +55,7 @@ export default {
 	position: relative;
 
 	textarea {
+		resize: none;
 		width: inherit;
 		height: inherit;
 		padding: 2rem;

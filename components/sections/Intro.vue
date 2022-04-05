@@ -1,6 +1,13 @@
 <template>
 	<section class="intro">
-		<img src="intro.jpg" alt="katafanga island" />
+		<Navbar />
+		<div class="logo lazyload">
+			<h1>katafanga</h1>
+			<span>fiji islands</span>
+		</div>
+		<!-- <nuxt-img :src="bg" class="bg" /> -->
+		<img :src="bg" class="bg lazyload" />
+
 		<div class="title">
 			<h2>paradise found</h2>
 			<h1>katafanga island</h1>
@@ -45,37 +52,70 @@
 			<div class="bg"></div>
 		</div>
 		<div class="grid">
-			<CoolLightBox :items="items" :index="index" @close="index = null"> </CoolLightBox>
-
 			<div class="images_wrapper">
-				<img v-for="(image, imageIndex) in items" :key="imageIndex" :src="image" @click="index = imageIndex" />
+				<img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" @click="changeBG(image)" />
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
-import CoolLightBox from 'vue-cool-lightbox'
-import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 export default {
-	components: {
-		CoolLightBox,
-	},
 	data: () => ({
-		index: null,
-		items: ['gallery/gallery1.jpg', 'gallery/gallery2.jpg', 'gallery/gallery3.jpg'],
+		bg: 'test/test2.jpg',
+		images: ['test/test2.jpg', 'test/test1.jpg', 'test/test3.jpg'],
 	}),
+	methods: {
+		changeBG(value) {
+			this.bg = value
+		},
+	},
 }
 </script>
 
 <style lang="scss" scoped>
 .intro {
 	width: 100%;
-	min-height: 100vh;
+	height: 100vh;
 	position: relative;
 	overflow: hidden;
-	img {
-		width: 100%;
+	.bg {
+		width: inherit;
+		height: inherit;
+		object-fit: cover;
+		object-position: center;
+
+		&.lazyload,
+		&.lazyloading {
+			opacity: 0;
+		}
+		&.lazyloaded {
+			opacity: 1;
+			transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+	}
+
+	.logo {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 2rem;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		color: $white;
+		text-transform: uppercase;
+		letter-spacing: 0.5rem;
+		h1 {
+			font-size: 2rem;
+		}
+		span {
+			margin-top: 0.5rem;
+			font-size: 300;
+		}
 	}
 
 	.title {
@@ -87,10 +127,11 @@ export default {
 			margin: 0;
 		}
 		h1 {
+			margin: 1rem 0;
 			font-family: 'Lato';
 			text-transform: uppercase;
 			font-size: 5rem;
-			font-weight: 400;
+			font-weight: 300;
 			letter-spacing: 0.5rem;
 		}
 
@@ -139,7 +180,6 @@ export default {
 			}
 		}
 	}
-
 	.grid {
 		width: 100%;
 		position: absolute;
@@ -152,8 +192,11 @@ export default {
 			justify-content: center;
 			align-items: center;
 			img {
-				width: 22rem;
-				margin-right: 0.5rem;
+				margin-left: 1rem;
+
+				width: 20rem;
+				height: 12rem;
+				object-fit: cover;
 			}
 		}
 	}

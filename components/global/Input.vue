@@ -22,7 +22,7 @@ export default {
 		},
 		rules: {
 			type: [Object, String],
-			required: true,
+			default: undefined,
 		},
 		placeholder: {
 			type: String,

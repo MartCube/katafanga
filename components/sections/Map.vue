@@ -1,7 +1,7 @@
 <template>
-	<section class="map">
+	<section id="location">
 		<div class="gmap">
-			<img src="/map.png" alt="location" />
+			<iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=10&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
 		</div>
 		<div class="info">
 			<h2>Location</h2>
@@ -15,17 +15,20 @@
 </template>
 
 <style lang="scss" scoped>
-.map {
+#location {
 	width: 100%;
 	display: flex;
 
 	.gmap {
 		width: 50%;
 		height: 45rem;
+		overflow: hidden;
 
-		img {
+		iframe {
 			width: 100%;
-			height: 100%;
+			height: 53rem;
+			border: 0;
+			margin-top: -8rem;
 		}
 	}
 

@@ -1,10 +1,12 @@
 <template>
-	<section class="gallery">
+	<section id="gallery">
 		<div class="grid">
 			<CoolLightBox :items="items" :index="index" @close="index = null"> </CoolLightBox>
 
 			<div class="images_wrapper">
-				<img v-for="(image, imageIndex) in items" :key="imageIndex" :src="image" @click="index = imageIndex" />
+				<div v-for="(image, imageIndex) in items" :key="imageIndex" class="image" @click="index = imageIndex">
+					<img :src="image" />
+				</div>
 			</div>
 		</div>
 		<div class="info">
@@ -24,31 +26,59 @@ export default {
 	},
 	data: () => ({
 		index: null,
-		items: ['gallery/gallery1.jpg', 'gallery/gallery2.jpg', 'gallery/gallery3.jpg'],
+		items: ['gallery/gallery1.jpg', 'gallery/gallery2.jpg', 'gallery/gallery3.jpg', 'gallery/gallery4.jpg', 'gallery/gallery5.jpg'],
 	}),
 }
 </script>
 
 <style lang="scss" scoped>
-.gallery {
+#gallery {
 	width: 100%;
 	display: flex;
-	padding: 6rem;
+	padding: 6rem 0;
 	background: $light-grey;
 
 	.grid {
 		width: 50%;
 		position: relative;
 		.images_wrapper {
+			width: 100%;
 			height: 100%;
+			overflow-x: scroll;
 			position: absolute;
 			right: 0;
+
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			img {
-				width: 26rem;
-				margin-right: 1rem;
+
+			.image {
+				display: flex;
+				position: relative;
+				margin-left: 1rem;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					background: $black;
+					opacity: 0;
+				}
+				img {
+					width: 22rem;
+					height: 25rem;
+					object-fit: cover;
+				}
+
+				&:hover {
+					cursor: pointer;
+					&::before {
+						transition: all 0.35s ease;
+						opacity: 0.35;
+					}
+				}
 			}
 		}
 	}

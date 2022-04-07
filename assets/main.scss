@@ -1,7 +1,6 @@
 @import '~/assets/colors.scss';
 
 
-
 * {
 	margin: 0;
 	padding: 0;
@@ -13,7 +12,7 @@
 
 body {
 	font-family: 'Lato', sans-serif;
-	h2{
+	h2 {
 		margin-bottom: 2rem;
 		text-transform: capitalize;
 		font-family: 'OneSignature';
@@ -21,14 +20,39 @@ body {
 		line-height: 4.5rem;
 		font-weight: 400;
 	}
-	p{
+	p {
 		font-family: 'Lato';
 		font-size: 1rem;
 		line-height: 1.5rem;
 		color: $text;
 	}
+	img {
+		&.lazyload,
+			&.lazyloading {
+				opacity: 0;
+			}
+			&.lazyloaded {
+				opacity: 1;
+				transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+			}
+	}
 }
 
+
+.swiper-wrapper {
+    height: 300px;
+    width: 100%;
+
+	display: flex;
+	// overflow: hidden;
+    .swiper-slide {
+
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+}
 
 
 

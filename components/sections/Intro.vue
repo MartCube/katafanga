@@ -1,48 +1,58 @@
 <template>
-	<section class="intro">
-		<Navbar />
-		<div class="logo lazyload">
+	<section id="intro">
+		<nuxt-img :src="bg" class="bg lazyload" />
+
+		<div ref="navbar" class="navbar">
+			<span v-scroll-to="'#home'">home</span>
+			<span v-scroll-to="'#about'">about</span>
+			<span v-scroll-to="'#gallery'">gallery</span>
+			<span v-scroll-to="'#contact'">contact</span>
+		</div>
+		<div ref="logo" class="logo">
 			<h1>katafanga</h1>
 			<span>fiji islands</span>
 		</div>
-		<!-- <nuxt-img :src="bg" class="bg" /> -->
-		<img :src="bg" class="bg lazyload" />
-
-		<div class="title">
-			<h2>paradise found</h2>
-			<h1>katafanga island</h1>
-			<h3>for sale</h3>
+		<div class="titles">
+			<div class="box">
+				<h2 class="title">paradise found</h2>
+			</div>
+			<div class="box">
+				<h1 class="title">katafanga island</h1>
+			</div>
+			<div class="box">
+				<h3 class="title">for sale</h3>
+			</div>
 		</div>
-		<div class="icons">
-			<div class="info">
+		<div ref="info" class="info">
+			<div class="wrap">
 				<nuxt-img src="/icons/region.svg" />
 				<div>
 					<h4>region:</h4>
 					<p>Fiji, South Pacific</p>
 				</div>
 			</div>
-			<div class="info">
+			<div class="wrap">
 				<nuxt-img src="/icons/location.svg" />
 				<div>
 					<h4>location:</h4>
 					<p>Lau Group in Eastern Fiji</p>
 				</div>
 			</div>
-			<div class="info">
+			<div class="wrap">
 				<nuxt-img src="/icons/size.svg" />
 				<div>
 					<h4>size:</h4>
 					<p>225.00 Acres</p>
 				</div>
 			</div>
-			<div class="info">
+			<div class="wrap">
 				<nuxt-img src="/icons/title.svg" />
 				<div>
 					<h4>title:</h4>
 					<p>Freehold</p>
 				</div>
 			</div>
-			<div class="info">
+			<div class="wrap">
 				<nuxt-img src="/icons/price.svg" />
 				<div>
 					<h4>price:</h4>
@@ -52,19 +62,25 @@
 			<div class="bg"></div>
 		</div>
 		<div class="grid">
-			<div class="images_wrapper">
-				<img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" @click="changeBG(image)" />
+			<div v-for="(image, imageIndex) in images" :key="imageIndex" class="image" @click="changeBG(image)">
+				<nuxt-img :src="image" class="lazyload" />
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
+import { introAnim } from '~/assets/anime'
 export default {
 	data: () => ({
 		bg: 'test/test2.jpg',
 		images: ['test/test2.jpg', 'test/test1.jpg', 'test/test3.jpg'],
 	}),
+	mounted() {
+		const images = document.querySelectorAll('#intro .grid .image')
+		const titles = document.querySelectorAll('#intro .titles .box .title')
+		introAnim(this.$refs.logo, this.$refs.navbar, this.$refs.info, titles, images)
+	},
 	methods: {
 		changeBG(value) {
 			this.bg = value
@@ -74,28 +90,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.intro {
+#intro {
 	width: 100%;
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
+
 	.bg {
+		z-index: -1;
+		user-select: none;
 		width: inherit;
 		height: inherit;
 		object-fit: cover;
 		object-position: center;
+	}
+	.navbar {
+		z-index: 1;
+		transform: translateY(-100%); // anime
+		position: absolute;
+		top: 0;
+		width: 100%;
 
-		&.lazyload,
-		&.lazyloading {
-			opacity: 0;
-		}
-		&.lazyloaded {
-			opacity: 1;
-			transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		span {
+			margin: 2rem;
+
+			color: $white;
+			text-transform: uppercase;
+			font-family: 'Lato';
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5rem;
+
+			&:hover {
+				transition: all 0.2s ease;
+				cursor: pointer;
+				opacity: 0.75;
+			}
 		}
 	}
 
 	.logo {
+		z-index: 1;
+		transform: translateY(-100%); // anime
+
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -117,31 +158,41 @@ export default {
 			font-size: 300;
 		}
 	}
+	.titles {
+		z-index: 1;
 
-	.title {
+		user-select: none;
+
 		color: $white;
 		position: absolute;
 		top: 20%;
 		left: 20%;
-		h2 {
-			margin: 0;
-		}
-		h1 {
-			margin: 1rem 0;
-			font-family: 'Lato';
-			text-transform: uppercase;
-			font-size: 5rem;
-			font-weight: 300;
-			letter-spacing: 0.5rem;
-		}
+		.box {
+			overflow: hidden;
+			h2 {
+				margin: 0;
+			}
+			h1 {
+				margin: 1rem 0;
+				font-family: 'Lato';
+				text-transform: uppercase;
+				font-size: 5rem;
+				font-weight: 300;
+				letter-spacing: 0.5rem;
+			}
 
-		h3 {
-			font-family: 'Lato';
-			font-size: 3rem;
-			font-weight: 700;
+			h3 {
+				font-family: 'Lato';
+				font-size: 3rem;
+				font-weight: 700;
+			}
 		}
 	}
-	.icons {
+	.info {
+		z-index: 1;
+		transform: translateY(100%); // anime
+
+		user-select: none;
 		position: absolute;
 		bottom: 0;
 		width: 100%;
@@ -159,15 +210,7 @@ export default {
 			opacity: 0.5;
 		}
 
-		img {
-			z-index: 2;
-
-			width: 1.5rem;
-			height: 1.5rem;
-			margin-right: 1rem;
-		}
-
-		.info {
+		.wrap {
 			margin-right: 4rem;
 
 			display: flex;
@@ -175,6 +218,13 @@ export default {
 			align-items: center;
 			z-index: 2;
 			color: $black;
+			img {
+				z-index: 2;
+
+				width: 1.5rem;
+				height: 1.5rem;
+				margin-right: 1rem;
+			}
 			p {
 				color: black;
 			}
@@ -183,20 +233,39 @@ export default {
 	.grid {
 		width: 100%;
 		position: absolute;
-		top: 70%;
-		left: 50%;
-		.images_wrapper {
-			height: 100%;
-			position: absolute;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			img {
-				margin-left: 1rem;
+		top: 50%;
 
+		display: flex;
+		justify-content: flex-end;
+
+		.image {
+			opacity: 0; // anime
+
+			display: flex;
+			position: relative;
+			margin-right: 1rem;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: $black;
+				opacity: 0;
+			}
+			img {
 				width: 20rem;
 				height: 12rem;
 				object-fit: cover;
+			}
+
+			&:hover {
+				cursor: pointer;
+				&::before {
+					transition: all 0.35s ease;
+					opacity: 0.35;
+				}
 			}
 		}
 	}

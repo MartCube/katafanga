@@ -62,7 +62,7 @@
 			<div class="bg"></div>
 		</div>
 		<div class="grid">
-			<div v-for="(image, imageIndex) in images" :key="imageIndex" class="image" @click="changeBG(image)">
+			<div v-for="(image, imageIndex) in thumbnails" :key="imageIndex" class="image" @click="changeBG(image)">
 				<nuxt-img :src="image" class="lazyload" />
 			</div>
 		</div>
@@ -73,8 +73,8 @@
 import { introAnim } from '~/assets/anime'
 export default {
 	data: () => ({
-		bg: 'test/test2.jpg',
-		images: ['test/test2.jpg', 'test/test1.jpg', 'test/test3.jpg'],
+		bg: 'intro/3.jpg',
+		thumbnails: ['intro/3-thumbnail.jpg', 'intro/2-thumbnail.jpg', 'intro/1-thumbnail.jpg'],
 	}),
 	mounted() {
 		const images = document.querySelectorAll('#intro .grid .image')
@@ -83,7 +83,7 @@ export default {
 	},
 	methods: {
 		changeBG(value) {
-			this.bg = value
+			this.bg = value.replace('-thumbnail', '')
 		},
 	},
 }

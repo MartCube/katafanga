@@ -3,15 +3,10 @@
 		<div class="grid">
 			<CoolLightBox :items="items" :index="index" @close="index = null"> </CoolLightBox>
 
-			<!-- <div class="images_wrapper">
-				<div v-for="(image, imageIndex) in items" :key="imageIndex" class="image" @click="index = imageIndex">
-					<img :src="image" />
-				</div>
-			</div> -->
-
 			<VueSlickCarousel v-bind="settings">
 				<div v-for="(image, imageIndex) in items" :key="imageIndex" class="image">
-					<img :src="image" />
+					<nuxt-img :src="image" />
+					<nuxt-img class="plus" src="/icons/plus.svg" @click="index = imageIndex" />
 				</div>
 			</VueSlickCarousel>
 		</div>
@@ -39,15 +34,16 @@ export default {
 			dots: false,
 			// focusOnSelect: true,
 			infinite: true,
-			speed: 500,
+			speed: 750,
 			// centerMode: true,
 			centerPadding: '50px',
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			variableWidth: true,
+			slidesToShow: 3,
+			slidesToScroll: 2,
+			// variableWidth: true,
+			autoplay: true,
 		},
 		index: null,
-		items: ['gallery/gallery1.jpg', 'gallery/gallery2.jpg', 'gallery/gallery3.jpg', 'gallery/gallery4.jpg'],
+		items: ['gallery/3.jpg', 'gallery/4.jpg', 'gallery/5.jpg', 'gallery/1.jpg', 'gallery/2.jpg', 'intro/1.jpg'],
 	}),
 }
 </script>
@@ -72,7 +68,9 @@ export default {
 					// padding-right: 1rem;
 					display: flex;
 					position: relative;
+
 					&::before {
+						z-index: 1;
 						content: '';
 						position: absolute;
 						top: 0;
@@ -83,6 +81,7 @@ export default {
 						opacity: 0;
 					}
 					img {
+						z-index: 0;
 						width: 100%;
 						height: 100%;
 						object-fit: cover;
@@ -91,9 +90,31 @@ export default {
 					&:hover {
 						cursor: pointer;
 
+						.plus {
+							opacity: 0.25;
+						}
+
 						&::before {
 							transition: all 0.35s ease;
 							opacity: 0.35;
+						}
+					}
+					.plus {
+						opacity: 0;
+						z-index: 2;
+
+						position: absolute;
+						top: calc(50% - 2rem);
+						left: calc(50% - 2rem);
+						width: 4rem;
+						height: 4rem;
+						padding: 1rem;
+						border: 2px solid $white;
+						border-radius: 50%;
+						transition: all 0.35s ease;
+
+						&:hover {
+							opacity: 1;
 						}
 					}
 				}

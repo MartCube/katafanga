@@ -82,8 +82,9 @@ export default {
 		introAnim(this.$refs.logo, this.$refs.navbar, this.$refs.info, titles, images)
 	},
 	methods: {
-		changeBG(value) {
+		async changeBG(value) {
 			this.bg = value.replace('-thumbnail', '')
+			await this.$nextTick()
 		},
 	},
 }
@@ -169,6 +170,9 @@ export default {
 		left: 20%;
 		.box {
 			overflow: hidden;
+			.title {
+				opacity: 0; //anime
+			}
 			h2 {
 				margin: 0;
 			}
@@ -233,17 +237,18 @@ export default {
 	.grid {
 		width: 100%;
 		position: absolute;
-		top: 50%;
+		bottom: 10rem;
 
 		display: flex;
 		justify-content: flex-end;
 
 		.image {
 			opacity: 0; // anime
-
+			width: 18rem;
+			height: 10rem;
 			display: flex;
 			position: relative;
-			margin-right: 1rem;
+			margin-right: 2rem;
 
 			&::before {
 				content: '';
@@ -255,8 +260,8 @@ export default {
 				opacity: 0;
 			}
 			img {
-				width: 20rem;
-				height: 12rem;
+				width: 100%;
+				height: 100%;
 				object-fit: cover;
 			}
 
@@ -265,6 +270,44 @@ export default {
 				&::before {
 					transition: all 0.35s ease;
 					opacity: 0.35;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 800px) {
+	#intro {
+		flex-direction: column;
+		padding: 0;
+
+		.grid,
+		.titles {
+			display: none;
+		}
+		.navbar {
+			justify-content: space-evenly;
+			span {
+				margin: 2rem 0;
+			}
+		}
+
+		.logo {
+			width: 100%;
+			margin: 50% auto;
+		}
+
+		.info {
+			height: fit-content;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			.wrap {
+				padding: 1rem;
+				width: 40%;
+				margin: 0;
+				justify-content: flex-start;
+				&:nth-child(5) {
+					display: none;
 				}
 			}
 		}

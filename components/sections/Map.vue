@@ -48,4 +48,23 @@
 		}
 	}
 }
+
+@media (max-width: 800px) {
+	#location {
+		flex-direction: column;
+		.gmap {
+			width: 100%;
+			height: 50vh;
+		}
+		.info {
+			width: 100%;
+			height: 100%;
+			padding: 2rem;
+
+			h2 {
+				text-align: center;
+			}
+		}
+	}
+}
 </style>

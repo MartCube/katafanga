@@ -32,14 +32,10 @@ export default {
 		settings: {
 			arrows: false,
 			dots: false,
-			// focusOnSelect: true,
 			infinite: true,
 			speed: 750,
-			// centerMode: true,
-			centerPadding: '50px',
 			slidesToShow: 3,
 			slidesToScroll: 2,
-			// variableWidth: true,
 			autoplay: true,
 		},
 		index: null,
@@ -65,7 +61,7 @@ export default {
 				.image {
 					width: 30%;
 					height: 18rem;
-					// padding-right: 1rem;
+					// padding-left: 1rem;
 					display: flex;
 					position: relative;
 
@@ -74,6 +70,7 @@ export default {
 						content: '';
 						position: absolute;
 						top: 0;
+						// width: calc(100% - 1rem);
 						width: 100%;
 						height: 100%;
 
@@ -136,6 +133,21 @@ export default {
 			span {
 				color: $black;
 				font-weight: 700;
+			}
+		}
+	}
+}
+
+@media (max-width: 800px) {
+	#gallery {
+		flex-direction: column;
+		padding: 0;
+		.grid {
+			width: 100%;
+
+			.slick-list .slick-slide .image {
+				width: 30%;
+				height: 10rem;
 			}
 		}
 	}

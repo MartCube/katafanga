@@ -26,4 +26,18 @@
 		margin-right: 8rem;
 	}
 }
+
+@media (max-width: 800px) {
+	#about {
+		flex-direction: column-reverse;
+		padding: 4rem 5%;
+		.info {
+			width: 90%;
+			margin: 2rem 0;
+			h2 {
+				text-align: center;
+			}
+		}
+	}
+}
 </style>

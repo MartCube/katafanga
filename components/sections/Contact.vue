@@ -2,8 +2,8 @@
 	<section id="contact">
 		<h2>contact us</h2>
 		<p>Get in touch for more information about Katafanga island</p>
-		<form ref="form" autocomplete="off" @submit.prevent="Submit()">
-			<ValidationObserver ref="validation" class="form" tag="div">
+		<form ref="form" class="form" autocomplete="off" @submit.prevent="Submit()">
+			<ValidationObserver ref="validation" class="validation" tag="div">
 				<Input id="firstName" placeholder="First Name" rules="required" @getValue="storeValue" />
 				<Input id="lastName" placeholder="Last Name" rules="required" @getValue="storeValue" />
 				<Input id="email" placeholder="Email" rules="email|required" @getValue="storeValue" />
@@ -95,30 +95,35 @@ export default {
 	}
 	.form {
 		width: 100%;
-		max-width: 70rem;
-
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		button {
-			width: 15rem;
-			height: 4rem;
-			margin-top: 2rem;
-			border: none;
-			background: $white;
+		.validation {
+			width: 100%;
+			max-width: 70rem;
 
-			text-transform: uppercase;
-			color: $text;
-			letter-spacing: 0.1rem;
-			font-family: 'Lato';
-			font-size: 1rem;
-			line-height: 1.5rem;
-			font-weight: 400;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			button {
+				align-self: center;
+				width: 15rem;
+				height: 4rem;
+				margin-top: 2rem;
+				border: none;
+				background: $white;
 
-			&:hover {
-				transition: all 0.2s ease;
-				cursor: pointer;
-				color: $black;
+				text-transform: uppercase;
+				color: $text;
+				letter-spacing: 0.1rem;
+				font-family: 'Lato';
+				font-size: 1rem;
+				line-height: 1.5rem;
+				font-weight: 400;
+
+				&:hover {
+					transition: all 0.2s ease;
+					cursor: pointer;
+					color: $black;
+				}
 			}
 		}
 	}
@@ -140,24 +145,17 @@ export default {
 }
 
 @media (max-width: 1100px) {
-	.contact {
+	#contact {
 		.form {
-			max-width: 40rem;
-		}
-	}
-}
+			width: 90%;
 
-@media (max-width: 700px) {
-	.contact {
-		.form {
-			max-width: 40rem;
-			flex-direction: column;
-			flex-wrap: nowrap;
-			padding: 0 2rem;
-
-			button {
-				width: 100%;
-				align-self: center;
+			.validation {
+				flex-direction: column;
+				flex-wrap: nowrap;
+				justify-content: center;
+				button {
+					align-self: center;
+				}
 			}
 		}
 	}

@@ -83,12 +83,6 @@ $height: 4rem;
 }
 @media (max-width: 1100px) {
 	.input_container {
-		max-width: 19rem;
-	}
-}
-
-@media (max-width: 700px) {
-	.input_container {
 		max-width: initial;
 	}
 }

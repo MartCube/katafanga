@@ -96,6 +96,7 @@ export default {
 	.form {
 		width: 100%;
 		display: flex;
+		justify-content: center;
 		.validation {
 			width: 100%;
 			max-width: 70rem;

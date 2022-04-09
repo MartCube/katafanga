@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$width: 34rem;
+$width: 50rem;
 $height: 4rem;
 .input_container {
 	width: 100%;

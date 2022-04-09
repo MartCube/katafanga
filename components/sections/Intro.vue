@@ -11,6 +11,7 @@
 		<div ref="logo" class="logo">
 			<h1>katafanga</h1>
 			<span>fiji islands</span>
+			<h4>for sale</h4>
 		</div>
 		<div class="titles">
 			<div class="box">
@@ -73,18 +74,30 @@
 import { introAnim } from '~/assets/anime'
 export default {
 	data: () => ({
+		index: 3,
 		bg: 'intro/3.jpg',
 		thumbnails: ['intro/3-thumbnail.jpg', 'intro/2-thumbnail.jpg', 'intro/1-thumbnail.jpg'],
+		images: ['intro/3.jpg', 'intro/2.jpg', 'intro/1.jpg'],
+		polling: null,
 	}),
 	mounted() {
 		const images = document.querySelectorAll('#intro .grid .image')
 		const titles = document.querySelectorAll('#intro .titles .box .title')
 		introAnim(this.$refs.logo, this.$refs.navbar, this.$refs.info, titles, images)
+
+		this.intervalBG()
 	},
 	methods: {
-		async changeBG(value) {
+		changeBG(value) {
 			this.bg = value.replace('-thumbnail', '')
-			await this.$nextTick()
+		},
+		intervalBG() {
+			const self = this
+			setInterval(function () {
+				self.index--
+				if (self.index === 0) self.index = 3
+				self.bg = `intro/${self.index.toString()}.jpg`
+			}, 5000)
 		},
 	},
 }
@@ -153,6 +166,10 @@ export default {
 		letter-spacing: 0.5rem;
 		h1 {
 			font-size: 2rem;
+		}
+		h4 {
+			margin-top: 1rem;
+			letter-spacing: 0.25rem;
 		}
 		span {
 			margin-top: 0.5rem;
@@ -275,7 +292,7 @@ export default {
 		}
 	}
 }
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
 	#intro {
 		flex-direction: column;
 		padding: 0;
@@ -293,7 +310,7 @@ export default {
 
 		.logo {
 			width: 100%;
-			margin: 50% auto;
+			margin: 25vh auto 0;
 		}
 
 		.info {
@@ -303,7 +320,7 @@ export default {
 
 			.wrap {
 				padding: 1rem;
-				width: 40%;
+				width: 50%;
 				margin: 0;
 				justify-content: flex-start;
 				&:nth-child(5) {

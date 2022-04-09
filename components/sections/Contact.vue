@@ -7,7 +7,7 @@
 				<Input id="firstName" placeholder="First Name" rules="required" @getValue="storeValue" />
 				<Input id="lastName" placeholder="Last Name" rules="required" @getValue="storeValue" />
 				<Input id="email" placeholder="Email" rules="email|required" @getValue="storeValue" />
-				<Input id="number" placeholder="Phone Number" @getValue="storeValue" />
+				<!-- <Input id="number" placeholder="Phone Number" @getValue="storeValue" /> -->
 				<Textarea id="message" placeholder="Message" rules="required" @getValue="storeValue" />
 				<button>Submit</button>
 			</ValidationObserver>
@@ -99,11 +99,11 @@ export default {
 		justify-content: center;
 		.validation {
 			width: 100%;
-			max-width: 70rem;
+			max-width: 50rem;
 
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
+			flex-direction: column;
+			justify-content: center;
 			button {
 				align-self: center;
 				width: 15rem;

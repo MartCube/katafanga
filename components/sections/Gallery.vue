@@ -3,12 +3,18 @@
 		<div class="grid">
 			<CoolLightBox :items="items" :index="index" @close="index = null"> </CoolLightBox>
 
-			<VueSlickCarousel v-bind="settings">
+			<VueSlickCarousel v-bind="settings" ref="carousel">
 				<div v-for="(image, imageIndex) in items" :key="imageIndex" class="image">
 					<nuxt-img :src="image" />
 					<nuxt-img class="plus" src="/icons/plus.svg" @click="index = imageIndex" />
 				</div>
 			</VueSlickCarousel>
+
+			<div class="arrows">
+				<nuxt-img class="prev" src="/icons/arrow.svg" @click="showNext" />
+				<h2>Gallery</h2>
+				<nuxt-img class="next" src="/icons/arrow.svg" @click="showNext" />
+			</div>
 		</div>
 		<div class="info">
 			<h2>explore the island</h2>
@@ -30,17 +36,23 @@ export default {
 	},
 	data: () => ({
 		settings: {
+			lazyLoad: 'ondemand',
 			arrows: false,
 			dots: false,
 			infinite: true,
 			speed: 750,
 			slidesToShow: 3,
 			slidesToScroll: 2,
-			autoplay: true,
+			// autoplay: true,
 		},
 		index: null,
 		items: ['gallery/3.jpg', 'gallery/4.jpg', 'gallery/5.jpg', 'gallery/1.jpg', 'gallery/2.jpg', 'intro/1.jpg'],
 	}),
+	methods: {
+		showNext() {
+			this.$refs.carousel.next()
+		},
+	},
 }
 </script>
 
@@ -117,6 +129,35 @@ export default {
 				}
 			}
 		}
+
+		.arrows {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			h2 {
+				margin: 2rem;
+			}
+			.prev {
+				width: 1.5rem;
+				transition: all 0.35s ease;
+				transform: rotate(-180deg);
+
+				&:hover {
+					cursor: pointer;
+					transform: rotate(-180deg) scale(1.2);
+				}
+			}
+			.next {
+				width: 1.5rem;
+				transition: all 0.35s ease;
+
+				&:hover {
+					cursor: pointer;
+					transform: scale(1.2);
+				}
+			}
+		}
 	}
 
 	.info {
@@ -148,6 +189,16 @@ export default {
 			.slick-list .slick-slide .image {
 				width: 30%;
 				height: 10rem;
+			}
+		}
+		.info {
+			width: 100%;
+			padding: 4rem 2rem;
+			h2 {
+				text-align: center;
+			}
+			p {
+				max-width: 30rem;
 			}
 		}
 	}

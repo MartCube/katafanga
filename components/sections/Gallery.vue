@@ -3,7 +3,7 @@
 		<div class="grid">
 			<CoolLightBox :items="items" :index="index" @close="index = null"> </CoolLightBox>
 
-			<VueSlickCarousel v-bind="settings" ref="carousel">
+			<VueSlickCarousel v-bind="settings" ref="carousel" class="gallery">
 				<div v-for="(image, imageIndex) in items" :key="imageIndex" class="image">
 					<nuxt-img :src="image" />
 					<nuxt-img class="plus" src="/icons/plus.svg" @click="index = imageIndex" />
@@ -38,9 +38,6 @@ export default {
 			speed: 750,
 			slidesToShow: 2,
 			slidesToScroll: 1,
-			// infinite: true,
-
-			// autoplay: true,
 			centerMode: true,
 			rows: 1,
 			responsive: [

@@ -1,6 +1,8 @@
 <template>
 	<section id="intro">
-		<nuxt-img :src="bg" class="bg lazyload" />
+		<VueSlickCarousel v-bind="settings" ref="bg" class="bg">
+			<nuxt-img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" />
+		</VueSlickCarousel>
 
 		<div ref="navbar" class="navbar">
 			<span v-scroll-to="'#home'">home</span>
@@ -62,42 +64,53 @@
 			</div>
 			<div class="bg"></div>
 		</div>
-		<div class="grid">
-			<div v-for="(image, imageIndex) in thumbnails" :key="imageIndex" class="image" @click="changeBG(image)">
+
+		<!-- <VueSlickCarousel v-bind="thumbnails_settings" ref="thumbnails" :as-nav-for="$refs.bg" class="thumbnails">
+			<div v-for="(image, imageIndex) in images" :key="imageIndex" class="image">
 				<nuxt-img :src="image" class="lazyload" />
 			</div>
-		</div>
+		</VueSlickCarousel> -->
 	</section>
 </template>
 
 <script>
+import VueSlickCarousel from 'vue-slick-carousel'
 import { introAnim } from '~/assets/anime'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+
 export default {
+	components: {
+		VueSlickCarousel,
+	},
 	data: () => ({
-		index: 3,
-		bg: 'intro/3.jpg',
-		thumbnails: ['intro/3-thumbnail.jpg', 'intro/2-thumbnail.jpg', 'intro/1-thumbnail.jpg'],
+		settings: {
+			arrows: false,
+			fade: true,
+			speed: 750,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			// infinite: true,
+		},
+		thumbnails_settings: {
+			arrows: false,
+			speed: 500,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			swipe: false,
+			focusOnSelect: true,
+		},
 		images: ['intro/3.jpg', 'intro/2.jpg', 'intro/1.jpg'],
-		polling: null,
+		thumbnails: ['intro/3-thumbnail.jpg', 'intro/2-thumbnail.jpg', 'intro/1-thumbnail.jpg'],
 	}),
 	mounted() {
 		const images = document.querySelectorAll('#intro .grid .image')
 		const titles = document.querySelectorAll('#intro .titles .box .title')
 		introAnim(this.$refs.logo, this.$refs.navbar, this.$refs.info, titles, images)
-
-		// this.intervalBG()
 	},
 	methods: {
 		changeBG(value) {
 			this.bg = value.replace('-thumbnail', '')
-		},
-		intervalBG() {
-			const self = this
-			setInterval(function () {
-				self.index--
-				if (self.index === 0) self.index = 3
-				self.bg = `intro/${self.index.toString()}.jpg`
-			}, 5000)
 		},
 	},
 }
@@ -110,14 +123,6 @@ export default {
 	position: relative;
 	overflow: hidden;
 
-	.bg {
-		z-index: -1;
-		user-select: none;
-		width: inherit;
-		height: inherit;
-		object-fit: cover;
-		object-position: center;
-	}
 	.navbar {
 		z-index: 1;
 		transform: translateY(-100%); // anime
@@ -251,53 +256,12 @@ export default {
 			}
 		}
 	}
-	.grid {
-		width: 100%;
-		position: absolute;
-		bottom: 10rem;
-
-		display: flex;
-		justify-content: flex-end;
-
-		.image {
-			opacity: 0; // anime
-			width: 14rem;
-			height: 8rem;
-			display: flex;
-			position: relative;
-			margin-right: 2rem;
-
-			&::before {
-				content: '';
-				position: absolute;
-				top: 0;
-				width: 100%;
-				height: 100%;
-				background: $black;
-				opacity: 0;
-			}
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-
-			&:hover {
-				cursor: pointer;
-				&::before {
-					transition: all 0.35s ease;
-					opacity: 0.35;
-				}
-			}
-		}
-	}
 }
 @media (max-width: 1100px) {
 	#intro {
 		flex-direction: column;
 		padding: 0;
 
-		.grid,
 		.titles {
 			display: none;
 		}

@@ -3,14 +3,17 @@
 		<h2>contact us</h2>
 		<p>Get in touch for more information about Katafanga island</p>
 		<form ref="form" class="form" autocomplete="off" @submit.prevent="Submit()">
-			<ValidationObserver ref="validation" class="validation" tag="div">
+			<ValidationObserver v-if="!sent" ref="validation" class="validation" tag="div">
 				<Input id="firstName" placeholder="First Name" rules="required" @getValue="storeValue" />
 				<Input id="lastName" placeholder="Last Name" rules="required" @getValue="storeValue" />
 				<Input id="email" placeholder="Email" rules="email|required" @getValue="storeValue" />
-				<!-- <Input id="number" placeholder="Phone Number" @getValue="storeValue" /> -->
 				<Textarea id="message" placeholder="Message" rules="required" @getValue="storeValue" />
 				<button>Submit</button>
 			</ValidationObserver>
+			<div v-else class="message">
+				<p>thank you for reaching to us</p>
+				<p>check your email for further instructions</p>
+			</div>
 		</form>
 		<div class="policy">
 			<span>Copyright © 2022 Katafanga</span>
@@ -26,15 +29,12 @@ export default {
 		ValidationObserver,
 	},
 	data: () => ({
-		loading: false,
+		sent: false,
 	}),
 	methods: {
 		async Submit() {
 			const isValid = await this.$refs.validation.validate()
 			if (!isValid) return
-			console.log('valid')
-			console.log(this.$refs.form)
-
 			emailjs.sendForm('default_service', 'katafanga', this.$refs.form, 'usk4gEtUUChwNhggm').then(
 				(result) => {
 					console.log('SUCCESS!', result.text)
@@ -43,6 +43,7 @@ export default {
 					console.log('FAILED...', error.text)
 				},
 			)
+			this.sent = true
 		},
 		storeValue(input) {
 			switch (input.name) {
@@ -78,7 +79,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: center;
 
 	background: $light-grey;
 	h2 {
@@ -96,6 +97,7 @@ export default {
 		.validation {
 			width: 100%;
 			max-width: 50rem;
+			margin-bottom: 6rem;
 
 			display: flex;
 			flex-direction: column;
@@ -124,10 +126,12 @@ export default {
 			}
 		}
 	}
+	position: relative;
 	.policy {
+		position: absolute;
+		bottom: 0;
 		width: 100%;
 		height: 4rem;
-		margin-top: 4rem;
 
 		background: $white;
 		display: flex;

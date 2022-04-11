@@ -58,10 +58,6 @@ export default {
 					this.form.email = input.value
 					break
 				}
-				case 'number': {
-					this.form.number = input.value
-					break
-				}
 				case 'message': {
 					this.form.message = input.value
 					break

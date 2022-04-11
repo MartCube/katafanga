@@ -49,7 +49,7 @@
 	}
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
 	#location {
 		flex-direction: column;
 		.gmap {
@@ -60,7 +60,10 @@
 			width: 100%;
 			height: 100%;
 			padding: 2rem;
-
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 			h2 {
 				text-align: center;
 			}

@@ -85,7 +85,7 @@ export default {
 		const titles = document.querySelectorAll('#intro .titles .box .title')
 		introAnim(this.$refs.logo, this.$refs.navbar, this.$refs.info, titles, images)
 
-		this.intervalBG()
+		// this.intervalBG()
 	},
 	methods: {
 		changeBG(value) {
@@ -146,7 +146,6 @@ export default {
 			}
 		}
 	}
-
 	.logo {
 		z-index: 1;
 		transform: translateY(-100%); // anime
@@ -165,11 +164,12 @@ export default {
 		text-transform: uppercase;
 		letter-spacing: 0.5rem;
 		h1 {
-			font-size: 2rem;
+			font-size: 1.5rem;
 		}
 		h4 {
 			margin-top: 1rem;
 			letter-spacing: 0.25rem;
+			display: none;
 		}
 		span {
 			margin-top: 0.5rem;
@@ -261,8 +261,8 @@ export default {
 
 		.image {
 			opacity: 0; // anime
-			width: 18rem;
-			height: 10rem;
+			width: 14rem;
+			height: 8rem;
 			display: flex;
 			position: relative;
 			margin-right: 2rem;
@@ -311,6 +311,9 @@ export default {
 		.logo {
 			width: 100%;
 			margin: 25vh auto 0;
+			h4 {
+				display: initial;
+			}
 		}
 
 		.info {

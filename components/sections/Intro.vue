@@ -5,9 +5,9 @@
 		</VueSlickCarousel>
 
 		<div ref="navbar" class="navbar">
-			<span v-scroll-to="'#home'">home</span>
 			<span v-scroll-to="'#about'">about</span>
 			<span v-scroll-to="'#gallery'">gallery</span>
+			<span v-scroll-to="'#location'">location</span>
 			<span v-scroll-to="'#contact'">contact</span>
 		</div>
 		<div ref="logo" class="logo">

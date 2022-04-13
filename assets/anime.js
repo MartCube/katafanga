@@ -58,3 +58,12 @@ export function introAnim(logo, navbar, info, title, images) {
 			1500,
 		)
 }
+
+export function fadeIn(el) {
+	anime({
+		targets: el,
+		opacity: [0, 1],
+		easing: 'easeInOutCubic',
+		duration: 350,
+	})
+}

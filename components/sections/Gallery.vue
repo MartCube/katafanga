@@ -12,7 +12,7 @@
 				</div>
 			</VueSlickCarousel>
 		</div>
-		<div class="info">
+		<div ref="info" class="info">
 			<h2>explore the island</h2>
 			<p>Katafanga is located in the exclusive Lau Group in Eastern Fiji. These 57 islands are some of the most sought after due to their privacy, as they are remote and sparsely populated in all of Fiji. Colorful reefs wedge themselves between the ocean and the secluded bays and beaches.</p>
 			<p>The climate here is drier than most parts of Fiji. Tourism is less developed here than in other parts of Fiji but this is precisely why these islands appeal to many who seek to experience a true island getaway. Katafanga is a one-hour flight from the international airport in Nadi, flying over some of the most beautiful scenery in the world, or by yacht, sailing through the most amazing waters. A huge amount of work has been done on this island.</p>
@@ -25,6 +25,8 @@ import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import { fadeIn } from '~/assets/anime'
+
 export default {
 	components: {
 		CoolLightBox,
@@ -52,6 +54,9 @@ export default {
 		index: null,
 		items: ['gallery/3.jpg', 'gallery/4.jpg', 'gallery/5.jpg', 'gallery/1.jpg', 'gallery/2.jpg', 'intro/1.jpg'],
 	}),
+	mounted() {
+		fadeIn(this.$refs.info)
+	},
 	methods: {
 		showNext() {
 			this.$refs.carousel.next()
@@ -74,6 +79,7 @@ export default {
 	}
 
 	.info {
+		opacity: 0; //anime
 		width: fit-content;
 		padding: 4rem;
 		background: $dark-grey;

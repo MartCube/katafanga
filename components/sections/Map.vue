@@ -3,7 +3,7 @@
 		<div class="gmap">
 			<iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=10&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
 		</div>
-		<div class="info">
+		<div ref="info" class="info">
 			<h2>Location</h2>
 			<p>There are number of ways of traveling to the island. Katafanga is one-hour flight from the international airport in Nadi, flying over someof the most beautiful scenenry in the world, or by yacht, sailing trough the most amazing waters.</p>
 			<p><span>Fly Commerical + Speed Boat:</span> Sun from Nadi to Vanua Balavu (neighboring island) which takes about one hour. Once one arrives at Vanua Balavu you can take a speed boat to Katafanga which takes about one hour.</p>
@@ -13,6 +13,16 @@
 		</div>
 	</section>
 </template>
+
+<script>
+import { fadeIn } from '~/assets/anime'
+
+export default {
+	mounted() {
+		fadeIn(this.$refs.info)
+	},
+}
+</script>
 
 <style lang="scss" scoped>
 #location {
@@ -33,6 +43,7 @@
 	}
 
 	.info {
+		opacity: 0; //anime
 		width: 50%;
 		height: 45rem;
 		padding: 4rem;

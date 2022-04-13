@@ -49,7 +49,7 @@ export default {
 .input_container {
 	width: 100%;
 	max-width: 70rem;
-	height: 25rem;
+	height: 10rem;
 
 	display: flex;
 	position: relative;

@@ -38,7 +38,7 @@ export default {
 	}),
 	methods: {
 		emitValue() {
-			this.$emit('getValue', { name: this.name, value: this.inputValue })
+			this.$emit('getValue', { name: this.id, value: this.inputValue })
 		},
 	},
 }

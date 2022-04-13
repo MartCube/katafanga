@@ -8,6 +8,7 @@
 					<Input id="firstName" placeholder="First Name" rules="required" @getValue="storeValue" />
 					<Input id="lastName" placeholder="Last Name" rules="required" @getValue="storeValue" />
 					<Input id="email" placeholder="Email" rules="email|required" @getValue="storeValue" />
+					<Input id="number" :placeholder="`${numberA} + ${numberB} = ?`" rules="required" @getValue="storeValue" />
 					<Textarea id="message" placeholder="Message" rules="required" @getValue="storeValue" />
 					<button>Submit</button>
 				</ValidationObserver>
@@ -35,7 +36,19 @@ export default {
 	},
 	data: () => ({
 		sent: false,
+		form: {},
 	}),
+	computed: {
+		numberA() {
+			return Math.floor(Math.random() * 10)
+		},
+		numberB() {
+			return Math.floor(Math.random() * 10)
+		},
+		result() {
+			return this.numberA + this.numberB
+		},
+	},
 	mounted() {
 		fadeIn(this.$refs.contact)
 	},
@@ -43,6 +56,9 @@ export default {
 		async Submit() {
 			const isValid = await this.$refs.validation.validate()
 			if (!isValid) return
+
+			if (this.number !== this.result) return
+
 			emailjs.sendForm('default_service', 'katafanga', this.$refs.form, 'usk4gEtUUChwNhggm').then(
 				(result) => {
 					console.log('SUCCESS!', result.text)
@@ -65,6 +81,10 @@ export default {
 				}
 				case 'email': {
 					this.form.email = input.value
+					break
+				}
+				case 'number': {
+					this.form.number = input.value
 					break
 				}
 				case 'message': {

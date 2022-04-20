@@ -5,24 +5,14 @@
 		</div>
 		<div ref="info" class="info">
 			<h2>Location</h2>
-			<p>There are number of ways of traveling to the island. Katafanga is one-hour flight from the international airport in Nadi, flying over someof the most beautiful scenenry in the world, or by yacht, sailing trough the most amazing waters.</p>
-			<p><span>Fly Commerical + Speed Boat:</span> Sun from Nadi to Vanua Balavu (neighboring island) which takes about one hour. Once one arrives at Vanua Balavu you can take a speed boat to Katafanga which takes about one hour.</p>
-			<p><span> Fly Charter + Speed Boat:</span> a small plane can fly from Nadi to Vanua Balavu and once there take the speed boat.</p>
-			<p><span>Fly Commercial + Fly Private:</span> One can also combine - you can fly Pacific sn to Vanua Balavu and you have the private plane pick you up for your return at your convenience. Or fly both ways private.</p>
-			<p><span> Sea Plane:</span> From Nadi you could charter a helicopter or a seaplane and fly directly to katafanga landing on the water. The flight would take about two hours.</p>
+			<p>There are a number of ways of traveling to the island until our airstrip has been certified by the Fijian government:</p>
+			<p>Fly Pacific Sun from Nadi to Vanua Balavu (neighboring island) which takes about 1 hour. Once one arrives at Vanua Balavu you can take a speed boat to Katafanga which takes about 1 hour.</p>
+			<p>Charter a small plane and fly from Nadi to Vanua Balavu and once there take the speed boat.</p>
+			<p>One can also combine - you can fly Pacific Sun to Vanua Balavu, and have the private plane pick you up for your return at your convenience. Or fly both ways private.</p>
+			<p>Sea Plane: From Nadi you could charter a helicopter or a seaplane and fly directly to Katafanga landing on the water. The flight would take about 2 hours.</p>
 		</div>
 	</section>
 </template>
-
-<script>
-import { fadeIn } from '~/assets/anime'
-
-export default {
-	mounted() {
-		fadeIn(this.$refs.info)
-	},
-}
-</script>
 
 <style lang="scss" scoped>
 #location {
@@ -43,11 +33,10 @@ export default {
 	}
 
 	.info {
-		opacity: 0; //anime
 		width: 50%;
 		height: 45rem;
 		padding: 4rem;
-
+		background: $light-grey;
 		p {
 			max-width: 30rem;
 			margin-bottom: 2rem;

@@ -25,7 +25,6 @@ import CoolLightBox from 'vue-cool-lightbox'
 import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import { fadeIn } from '~/assets/anime'
 
 export default {
 	components: {
@@ -54,9 +53,7 @@ export default {
 		index: null,
 		items: ['gallery/3.jpg', 'gallery/4.jpg', 'gallery/5.jpg', 'gallery/1.jpg', 'gallery/2.jpg', 'intro/1.jpg'],
 	}),
-	mounted() {
-		fadeIn(this.$refs.info)
-	},
+
 	methods: {
 		showNext() {
 			this.$refs.carousel.next()
@@ -79,7 +76,6 @@ export default {
 	}
 
 	.info {
-		opacity: 0; //anime
 		width: fit-content;
 		padding: 4rem;
 		background: $dark-grey;

@@ -28,7 +28,6 @@
 <script>
 import { ValidationObserver } from 'vee-validate'
 import * as emailjs from '@emailjs/browser'
-import { fadeIn } from '~/assets/anime'
 
 export default {
 	components: {
@@ -49,9 +48,7 @@ export default {
 			return this.numberA + this.numberB
 		},
 	},
-	mounted() {
-		fadeIn(this.$refs.contact)
-	},
+
 	methods: {
 		async Submit() {
 			const isValid = await this.$refs.validation.validate()
@@ -99,7 +96,6 @@ export default {
 
 <style lang="scss" scoped>
 #contact {
-	opacity: 0; //anime
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;

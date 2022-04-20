@@ -8,6 +8,7 @@
 			<span v-scroll-to="'#about'">about</span>
 			<span v-scroll-to="'#gallery'">gallery</span>
 			<span v-scroll-to="'#location'">location</span>
+			<span v-scroll-to="'#documents'">documents</span>
 			<span v-scroll-to="'#contact'">contact</span>
 		</div>
 		<div ref="logo" class="logo">
@@ -294,6 +295,14 @@ export default {
 					display: none;
 				}
 			}
+		}
+	}
+}
+
+@media (max-width: 420px) {
+	#intro {
+		.navbar {
+			display: none;
 		}
 	}
 }

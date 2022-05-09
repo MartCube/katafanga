@@ -19,9 +19,6 @@
 			<p>We've received your message and will contact you soon.</p>
 			<button v-scroll-to="'#intro'">go to top</button>
 		</div>
-		<div class="policy">
-			<span>© 2022 The islander Group companies, Ltd, Suva, Fiji</span>
-		</div>
 	</section>
 </template>
 
@@ -152,22 +149,6 @@ export default {
 		}
 	}
 	position: relative;
-	.policy {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		height: 4rem;
-
-		background: $white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		font-family: 'Lato';
-		font-size: 1rem;
-		line-height: 1.5rem;
-		color: $black;
-	}
 
 	.message {
 		width: 90%;

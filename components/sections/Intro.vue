@@ -5,11 +5,11 @@
 		</VueSlickCarousel>
 
 		<div ref="navbar" class="navbar">
-			<span v-scroll-to="'#about'">about</span>
-			<span v-scroll-to="'#gallery'">gallery</span>
-			<span v-scroll-to="'#location'">location</span>
-			<span v-scroll-to="'#documents'">documents</span>
-			<span v-scroll-to="'#contact'">contact</span>
+			<NuxtLink to="/">home</NuxtLink>
+			<NuxtLink to="/about">about</NuxtLink>
+			<NuxtLink to="/gallery">gallery</NuxtLink>
+			<NuxtLink to="/documents">documents</NuxtLink>
+			<NuxtLink to="/contact">contact</NuxtLink>
 		</div>
 		<div ref="logo" class="logo">
 			<h1>katafanga</h1>
@@ -65,12 +65,6 @@
 			</div>
 			<div class="bg"></div>
 		</div>
-
-		<!-- <VueSlickCarousel v-bind="thumbnails_settings" ref="thumbnails" :as-nav-for="$refs.bg" class="thumbnails">
-			<div v-for="(image, imageIndex) in images" :key="imageIndex" class="image">
-				<nuxt-img :src="image" class="lazyload" />
-			</div>
-		</VueSlickCarousel> -->
 	</section>
 </template>
 
@@ -135,11 +129,12 @@ export default {
 		justify-content: center;
 		align-items: center;
 
-		span {
+		a {
 			margin: 2rem;
 
 			color: $white;
 			text-transform: uppercase;
+			text-decoration: none;
 			font-family: 'Lato';
 			font-size: 1rem;
 			font-weight: 400;

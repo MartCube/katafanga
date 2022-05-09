@@ -1,26 +1,334 @@
 <template>
-	<div class="page">
-		<Intro />
-		<About />
-		<Gallery />
-		<Map />
-		<Documents />
-		<Contact />
+	<div id="intro">
+		<VueSlickCarousel v-bind="settings" ref="bg" class="bg">
+			<nuxt-img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" />
+		</VueSlickCarousel>
+
+		<div ref="links" class="links" :class="{ menu: showMenu }">
+			<NuxtLink to="/">home</NuxtLink>
+			<NuxtLink to="/about">about</NuxtLink>
+			<NuxtLink to="/location">location</NuxtLink>
+			<NuxtLink to="/gallery">gallery</NuxtLink>
+			<NuxtLink to="/documents">documents</NuxtLink>
+			<NuxtLink to="/contact">contact</NuxtLink>
+		</div>
+
+		<div class="btn" @click="ToggleMenu">
+			<nuxt-img v-if="showMenu" src="/icons/xmark.svg" />
+			<nuxt-img v-else src="/icons/bars.svg" />
+		</div>
+
+		<div ref="logo" class="logo">
+			<h1>katafanga</h1>
+			<span>fiji islands</span>
+			<h4>for sale</h4>
+		</div>
+		<div class="titles">
+			<div class="box">
+				<h2 class="title">paradise found</h2>
+			</div>
+			<div class="box">
+				<h1 class="title">katafanga island</h1>
+			</div>
+			<div class="box">
+				<h3 class="title">for sale</h3>
+			</div>
+		</div>
+		<div ref="info" class="info">
+			<div class="wrap">
+				<nuxt-img src="/icons/region.svg" />
+				<div>
+					<h4>region:</h4>
+					<p>Fiji, South Pacific</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<nuxt-img src="/icons/location.svg" />
+				<div>
+					<h4>location:</h4>
+					<p>Lau Group in Eastern Fiji</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<nuxt-img src="/icons/size.svg" />
+				<div>
+					<h4>size:</h4>
+					<p>225.00 Acres</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<nuxt-img src="/icons/title.svg" />
+				<div>
+					<h4>title:</h4>
+					<p>Freehold</p>
+				</div>
+			</div>
+			<div class="wrap">
+				<nuxt-img src="/icons/price.svg" />
+				<div>
+					<h4>price:</h4>
+					<p>Upon request</p>
+				</div>
+			</div>
+			<div class="bg"></div>
+		</div>
 	</div>
 </template>
 
 <script>
-import { fadeIn } from '~/assets/anime'
+import VueSlickCarousel from 'vue-slick-carousel'
+import { introAnim } from '~/assets/anime'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 
 export default {
+	components: {
+		VueSlickCarousel,
+	},
+	layout: 'home',
+	data: () => ({
+		showMenu: false,
+		settings: {
+			arrows: false,
+			fade: true,
+			speed: 750,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			// infinite: true,
+		},
+		thumbnails_settings: {
+			arrows: false,
+			speed: 500,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			swipe: false,
+			focusOnSelect: true,
+		},
+		images: ['intro.jpg', 'gallery/4.jpg', 'gallery/10.jpg'],
+	}),
 	mounted() {
-		fadeIn(document.querySelector('.page'))
+		const images = document.querySelectorAll('#intro .grid .image')
+		const titles = document.querySelectorAll('#intro .titles .box .title')
+		introAnim(this.$refs.logo, this.$refs.links, this.$refs.info, titles, images)
+	},
+	methods: {
+		ToggleMenu() {
+			this.showMenu = !this.showMenu
+		},
 	},
 }
 </script>
 
-<style scoped>
-.page {
-	opacity: 0;
+<style lang="scss" scoped>
+#intro {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+
+	.btn {
+		display: none; // only for mobile
+
+		z-index: 3;
+		position: absolute;
+		top: 3rem;
+		right: 3rem;
+
+		width: 2rem;
+	}
+
+	.links {
+		z-index: 1;
+		transform: translateY(-100%); // anime
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		a {
+			margin: 2rem;
+
+			color: $white;
+			text-transform: uppercase;
+			text-decoration: none;
+			font-family: 'Lato';
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5rem;
+
+			&:hover {
+				transition: all 0.2s ease;
+				cursor: pointer;
+				opacity: 0.75;
+			}
+		}
+	}
+	.logo {
+		z-index: 1;
+		transform: translateY(-100%); // anime
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 2rem;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		color: $white;
+		text-transform: uppercase;
+		letter-spacing: 0.5rem;
+		h1 {
+			font-size: 1.5rem;
+		}
+		h4 {
+			margin-top: 1rem;
+			letter-spacing: 0.25rem;
+			display: none;
+		}
+		span {
+			margin-top: 0.5rem;
+			font-size: 300;
+		}
+	}
+	.titles {
+		z-index: 1;
+
+		user-select: none;
+
+		color: $white;
+		position: absolute;
+		top: 20%;
+		left: 20%;
+		.box {
+			overflow: hidden;
+			.title {
+				opacity: 0; //anime
+			}
+			h2 {
+				margin: 0;
+			}
+			h1 {
+				margin: 1rem 0;
+				font-family: 'Lato';
+				text-transform: uppercase;
+				font-size: 5rem;
+				font-weight: 300;
+				letter-spacing: 0.5rem;
+			}
+
+			h3 {
+				font-family: 'Lato';
+				font-size: 3rem;
+				font-weight: 700;
+			}
+		}
+	}
+	.info {
+		z-index: 1;
+		transform: translateY(100%); // anime
+
+		user-select: none;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 8rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.bg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: $white;
+			opacity: 0.5;
+		}
+
+		.wrap {
+			margin-right: 4rem;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 2;
+			color: $black;
+			img {
+				z-index: 2;
+
+				width: 1.5rem;
+				height: 1.5rem;
+				margin-right: 1rem;
+			}
+			p {
+				color: black;
+			}
+		}
+	}
+}
+@media (max-width: 1100px) {
+	#intro {
+		flex-direction: column;
+		padding: 0;
+
+		.titles {
+			top: 25%;
+			left: 2rem;
+			.box {
+				h1 {
+					font-size: 2.5rem;
+				}
+				h3 {
+					font-size: 2rem;
+				}
+			}
+		}
+		.links {
+			display: none;
+			&.menu {
+				z-index: 2;
+				width: 100%;
+				height: 100vh;
+				background: $white;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				a {
+					margin: 0;
+					color: $black;
+				}
+			}
+		}
+		.btn {
+			display: flex;
+		}
+
+		.logo {
+			width: max-content;
+		}
+
+		.info {
+			height: fit-content;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			.wrap {
+				padding: 1rem;
+				width: 50%;
+				margin: 0;
+				justify-content: flex-start;
+				&:nth-child(5) {
+					display: none;
+				}
+			}
+		}
+	}
 }
 </style>

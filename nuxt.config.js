@@ -17,14 +17,14 @@ export default {
 
 	buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/style-resources', 'nuxt-font-loader', 'nuxt-lazysizes', '@nuxt/image'],
 	styleResources: { scss: ['./assets/colors.scss'] },
-	fontLoader: {
-		url: {
-			local: '/fonts/font-face.css',
-			google: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap',
-		},
-		prefetch: true,
-		preconnect: true,
-	},
+	// fontLoader: {
+	// 	url: {
+	// 		local: '/fonts/font-face.css',
+	// 		google: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap',
+	// 	},
+	// 	prefetch: true,
+	// 	preconnect: true,
+	// },
 
 	modules: ['vue-scrollto/nuxt'],
 

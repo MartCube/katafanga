@@ -17,7 +17,7 @@
 		<div v-else class="message">
 			<h2>Thank you</h2>
 			<p>We've received your message and will contact you soon.</p>
-			<button v-scroll-to="'#intro'">go to top</button>
+			<button @click="newForm">Write New Message</button>
 		</div>
 	</section>
 </template>
@@ -27,12 +27,18 @@ import { ValidationObserver } from 'vee-validate'
 import * as emailjs from '@emailjs/browser'
 
 export default {
+	name: 'Contact',
 	components: {
 		ValidationObserver,
 	},
 	data: () => ({
 		sent: false,
-		form: {},
+		form: {
+			email: '',
+			firstName: '',
+			lastName: '',
+			number: 0,
+		},
 	}),
 	computed: {
 		numberA() {
@@ -45,13 +51,13 @@ export default {
 			return this.numberA + this.numberB
 		},
 	},
-
 	methods: {
 		async Submit() {
 			const isValid = await this.$refs.validation.validate()
-			if (!isValid) return
+			console.log(this.form.number, this.result)
 
-			if (this.number !== this.result) return
+			if (!isValid) return
+			if (this.form.number !== this.result) return
 
 			emailjs.sendForm('default_service', 'katafanga', this.$refs.form, 'usk4gEtUUChwNhggm').then(
 				(result) => {
@@ -78,7 +84,7 @@ export default {
 					break
 				}
 				case 'number': {
-					this.form.number = input.value
+					this.form.number = Number(input.value)
 					break
 				}
 				case 'message': {
@@ -86,6 +92,9 @@ export default {
 					break
 				}
 			}
+		},
+		newForm() {
+			this.sent = false
 		},
 	},
 }

@@ -50,6 +50,7 @@ export default {
 	position: relative;
 
 	.route {
+		z-index: 2;
 		position: absolute;
 		bottom: 30%;
 		width: 100%;
@@ -71,6 +72,7 @@ export default {
 		object-position: center;
 	}
 	.links {
+		z-index: 2;
 		position: absolute;
 		top: 0;
 		width: 100%;

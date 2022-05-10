@@ -3,7 +3,7 @@
 		<div class="grid">
 			<CoolLightBox :items="items" :index="index" @close="index = null"> </CoolLightBox>
 
-			<nuxt-img v-for="(item, i) in items" :key="i" :src="item" @click="index = i" />
+			<nuxt-img v-for="(item, i) in items" :key="i" :src="item" class="lazyload" @click="index = i" />
 		</div>
 	</section>
 </template>

@@ -66,6 +66,8 @@ export default {
 		letter-spacing: 0.2rem;
 	}
 	img {
+		z-index: 1;
+
 		width: inherit;
 		height: inherit;
 		object-fit: cover;
@@ -97,7 +99,7 @@ export default {
 		}
 	}
 	.logo {
-		z-index: 1;
+		z-index: 3;
 
 		position: absolute;
 		top: 0;
@@ -138,7 +140,7 @@ export default {
 	}
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 	.navbar {
 		.route {
 			font-size: 3rem;
@@ -147,7 +149,7 @@ export default {
 			width: 100%;
 			display: none;
 			&.menu {
-				z-index: 2;
+				z-index: 4;
 				width: 100%;
 				height: 100vh;
 				background: $white;

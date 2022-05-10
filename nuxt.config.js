@@ -2,6 +2,7 @@ export default {
 	target: 'static',
 	loading: { color: '#c5a37d' },
 	css: ['~/assets/main.scss'],
+	trailingSlash: false,
 	components: ['~/components/global', '~/components/sections'],
 
 	head: {
@@ -15,7 +16,7 @@ export default {
 
 	plugins: [{ src: '@/plugins/vee-validate.js' }],
 
-	buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/style-resources', 'nuxt-font-loader', 'nuxt-lazysizes', '@nuxt/image'],
+	buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/style-resources', 'nuxt-lazysizes', '@nuxt/image'],
 	styleResources: { scss: ['./assets/colors.scss'] },
 	// fontLoader: {
 	// 	url: {

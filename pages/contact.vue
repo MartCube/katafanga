@@ -109,6 +109,7 @@ export default {
 
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 
@@ -131,8 +132,8 @@ export default {
 			margin-bottom: 6rem;
 
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			button {
 				align-self: center;
 				width: 15rem;

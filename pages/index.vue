@@ -3,21 +3,19 @@
 		<VueSlickCarousel v-bind="settings" ref="bg" class="bg">
 			<nuxt-img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" />
 		</VueSlickCarousel>
-
+		<div class="coordinates">17.5167° S, 178.7167° W</div>
 		<div ref="links" class="links" :class="{ menu: showMenu }">
 			<NuxtLink to="/">home</NuxtLink>
-			<NuxtLink to="/about">about</NuxtLink>
-			<NuxtLink to="/location">location</NuxtLink>
-			<NuxtLink to="/gallery">gallery</NuxtLink>
-			<NuxtLink to="/documents">documents</NuxtLink>
-			<NuxtLink to="/contact">contact</NuxtLink>
+			<NuxtLink to="/about/">about</NuxtLink>
+			<NuxtLink to="/location/">location</NuxtLink>
+			<NuxtLink to="/gallery/">gallery</NuxtLink>
+			<NuxtLink to="/documents/">documents</NuxtLink>
+			<NuxtLink to="/contact/">contact</NuxtLink>
 		</div>
-
 		<div class="btn" @click="ToggleMenu">
 			<nuxt-img v-if="showMenu" src="/icons/xmark.svg" />
 			<nuxt-img v-else src="/icons/bars.svg" />
 		</div>
-
 		<div ref="logo" class="logo">
 			<h1>katafanga</h1>
 			<span>fiji islands</span>
@@ -126,6 +124,15 @@ export default {
 	position: relative;
 	overflow: hidden;
 
+	.coordinates {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 2rem;
+
+		color: $white;
+		font-size: 0.8rem;
+	}
 	.btn {
 		display: none; // only for mobile
 
@@ -155,7 +162,7 @@ export default {
 			text-transform: uppercase;
 			text-decoration: none;
 			font-family: 'Lato';
-			font-size: 1rem;
+			font-size: 0.8rem;
 			font-weight: 400;
 			line-height: 1.5rem;
 
@@ -276,6 +283,9 @@ export default {
 	#intro {
 		flex-direction: column;
 		padding: 0;
+		.coordinates {
+			display: none;
+		}
 
 		.titles {
 			top: 25%;
@@ -309,11 +319,9 @@ export default {
 		.btn {
 			display: flex;
 		}
-
 		.logo {
 			width: max-content;
 		}
-
 		.info {
 			height: fit-content;
 			flex-wrap: wrap;

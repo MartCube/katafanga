@@ -48,7 +48,7 @@ export default {
 $width: 50rem;
 $height: 4rem;
 .input_container {
-	width: 100%;
+	width: 48%;
 	max-width: $width;
 	height: $height;
 	margin-bottom: 2rem;
@@ -56,7 +56,7 @@ $height: 4rem;
 	display: flex;
 	position: relative;
 	input {
-		width: inherit;
+		width: 100%;
 		height: inherit;
 		padding: 0 2rem;
 		background: $white;
@@ -83,6 +83,7 @@ $height: 4rem;
 }
 @media (max-width: 1100px) {
 	.input_container {
+		width: 100%;
 		max-width: initial;
 	}
 }

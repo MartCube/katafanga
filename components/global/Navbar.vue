@@ -7,12 +7,13 @@
 		</NuxtLink>
 		<div class="links" :class="{ menu: showMenu }" @click="CloseMenu">
 			<NuxtLink to="/">home</NuxtLink>
-			<NuxtLink to="/about">about</NuxtLink>
-			<NuxtLink to="/location">location</NuxtLink>
-			<NuxtLink to="/gallery">gallery</NuxtLink>
-			<NuxtLink to="/documents">documents</NuxtLink>
-			<NuxtLink to="/contact">contact</NuxtLink>
+			<NuxtLink to="/about/">about</NuxtLink>
+			<NuxtLink to="/location/">location</NuxtLink>
+			<NuxtLink to="/gallery/">gallery</NuxtLink>
+			<NuxtLink to="/documents/">documents</NuxtLink>
+			<NuxtLink to="/contact/">contact</NuxtLink>
 		</div>
+		<div class="coordinates">17.5167° S, 178.7167° W</div>
 		<div class="btn" @click="ToggleMenu">
 			<nuxt-img v-if="showMenu" src="/icons/xmark.svg" />
 			<nuxt-img v-else src="/icons/bars.svg" />
@@ -29,7 +30,9 @@ export default {
 	}),
 	computed: {
 		routeTitle() {
-			return this.$route.path.replace('/', '')
+			const title = this.$route.name
+			if (title === 'contact') return ''
+			else return title
 		},
 	},
 	methods: {
@@ -49,6 +52,15 @@ export default {
 	height: 50vh;
 	position: relative;
 
+	.coordinates {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 2rem;
+
+		color: $white;
+		font-size: 0.8rem;
+	}
 	.route {
 		z-index: 2;
 		position: absolute;
@@ -60,9 +72,9 @@ export default {
 		text-transform: uppercase;
 		text-decoration: none;
 		font-family: 'Lato';
-		font-size: 4rem;
+		font-size: 3rem;
 		font-weight: 300;
-		line-height: 4rem;
+		line-height: 3rem;
 		letter-spacing: 0.2rem;
 	}
 	img {
@@ -81,15 +93,15 @@ export default {
 		display: flex;
 		justify-content: center;
 		a {
-			margin: 2rem;
+			margin: 2.5rem 2rem;
 
 			color: $white;
 			text-transform: uppercase;
 			text-decoration: none;
 			font-family: 'Lato';
-			font-size: 1rem;
+			font-size: 0.8rem;
 			font-weight: 400;
-			line-height: 1.5rem;
+			line-height: 1rem;
 
 			&:hover {
 				transition: all 0.2s ease;
@@ -142,12 +154,16 @@ export default {
 
 @media (max-width: 1200px) {
 	.navbar {
+		.coordinates {
+			display: none;
+		}
 		.route {
 			font-size: 3rem;
 		}
 		.links {
 			width: 100%;
 			display: none;
+
 			&.menu {
 				z-index: 4;
 				width: 100%;

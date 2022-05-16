@@ -7,7 +7,7 @@
 			<a href="/docs/valuation-of-island.pdf" target="blank">download</a>
 		</div>
 		<div class="doc">
-			<h2>Architech</h2>
+			<h2>Architect</h2>
 			<h2>presentation</h2>
 			<p>Click here to download the PDF document (12mb) of the complete appraisal study.</p>
 			<a href="/docs/architect-presentation.pdf" target="blank">download</a>
@@ -47,7 +47,7 @@ export default {
 #documents {
 	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	flex-wrap: wrap;
 	background: $bg;
 
@@ -58,6 +58,7 @@ export default {
 	}
 
 	.doc {
+		margin: 0 4rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

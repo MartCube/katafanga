@@ -101,6 +101,29 @@ body {
 	}
 }
 
+#gallery {
+	.grid {
+		.cool-lightbox .cool-lightbox-button {
+			width: 4rem;
+			height: 4rem;
+			padding: 5px;
+			background: rgba(0, 0, 0, .5);
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				width: 2rem
+			}
+
+			&.cool-lightbox-button--prev {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
+
 
 .page-enter-active,
 .page-leave-active {

@@ -1,8 +1,8 @@
 <template>
 	<section id="location">
 		<div class="gmap">
-			<!-- <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=8&q=place_id:ChIJXdw8cP2QGW4Rk1vvRpkxnJ4&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe> -->
-			<iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=11&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
+			<iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=8&q=place_id:ChIJXdw8cP2QGW4Rk1vvRpkxnJ4&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
+			<!-- <iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=11&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe> -->
 		</div>
 		<div ref="info" class="info">
 			<h2>the island</h2>

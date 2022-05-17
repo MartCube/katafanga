@@ -28,11 +28,12 @@
 
 	p {
 		margin-bottom: 1.5rem;
+		font-size: 0.85rem;
 	}
 
 	.image {
 		width: 100%;
-		max-width: 70rem;
+		max-width: 62rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -43,12 +44,12 @@
 		}
 		img {
 			width: 100%;
-			max-width: 35rem;
+			max-width: 30rem;
 		}
 	}
 
 	.info {
-		max-width: 70rem;
+		max-width: 62rem;
 	}
 }
 

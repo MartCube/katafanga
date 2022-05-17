@@ -19,7 +19,7 @@
 		<div ref="logo" class="logo">
 			<h1>katafanga</h1>
 			<span>fiji islands</span>
-			<h4>for sale</h4>
+			<h4>katafanga island - fiji freehold - 225 acres</h4>
 		</div>
 		<div class="titles">
 			<div class="box">
@@ -195,12 +195,14 @@ export default {
 		}
 		h4 {
 			margin-top: 1rem;
-			letter-spacing: 0.25rem;
-			display: none;
+			font-size: 0.85rem;
+			font-weight: 400;
+			letter-spacing: 0;
 		}
 		span {
 			margin-top: 0.5rem;
 			font-size: 300;
+			font-weight: 300;
 		}
 	}
 	.titles {

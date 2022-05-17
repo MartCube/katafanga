@@ -3,7 +3,7 @@
 		<NuxtLink ref="logo" class="logo" to="/">
 			<h1>katafanga</h1>
 			<span>fiji islands</span>
-			<h4>for sale</h4>
+			<h4>katafanga island - fiji freehold - 225 acres</h4>
 		</NuxtLink>
 		<div class="links" :class="{ menu: showMenu }" @click="CloseMenu">
 			<NuxtLink to="/">home</NuxtLink>
@@ -49,9 +49,16 @@ export default {
 <style lang="scss" scoped>
 .navbar {
 	width: 100%;
-	height: 50vh;
+	height: 40vh;
 	position: relative;
+	img {
+		z-index: 1;
 
+		width: inherit;
+		height: inherit;
+		object-fit: cover;
+		object-position: center;
+	}
 	.coordinates {
 		position: absolute;
 		top: 0;
@@ -76,14 +83,6 @@ export default {
 		font-weight: 300;
 		line-height: 3rem;
 		letter-spacing: 0.2rem;
-	}
-	img {
-		z-index: 1;
-
-		width: inherit;
-		height: inherit;
-		object-fit: cover;
-		object-position: center;
 	}
 	.links {
 		z-index: 2;
@@ -132,12 +131,14 @@ export default {
 		}
 		h4 {
 			margin-top: 1rem;
-			letter-spacing: 0.25rem;
-			display: none;
+			font-size: 0.85rem;
+			font-weight: 400;
+			letter-spacing: 0;
 		}
 		span {
 			margin-top: 0.5rem;
 			font-size: 300;
+			font-weight: 300;
 		}
 	}
 	.btn {

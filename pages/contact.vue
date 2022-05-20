@@ -113,7 +113,7 @@ export default {
 	align-items: center;
 	justify-content: center;
 
-	background: $light-grey;
+	background: $bg;
 	h2 {
 		margin-bottom: 2rem;
 	}

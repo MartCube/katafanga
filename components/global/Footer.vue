@@ -8,7 +8,7 @@
 .policy {
 	bottom: 0;
 	width: 100%;
-	height: 4rem;
+	height: 3rem;
 
 	background: $white;
 	display: flex;
@@ -16,7 +16,7 @@
 	align-items: center;
 
 	font-family: 'Lato';
-	font-size: 1rem;
+	font-size: 0.8rem;
 	line-height: 1.5rem;
 	color: $black;
 }

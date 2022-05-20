@@ -37,7 +37,7 @@ export default {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding: 6rem 0;
+	padding: 2rem 0;
 	background: $light-grey;
 
 	.grid {
@@ -59,7 +59,6 @@ export default {
 			margin: 0 auto;
 			width: 15rem;
 			height: 4rem;
-			margin-top: 2rem;
 			border: none;
 			background: $white;
 

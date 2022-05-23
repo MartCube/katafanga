@@ -15,10 +15,10 @@
 			<h2>Getting there</h2>
 			<p>There are a number of ways of traveling to the island until our airstrip has been certified by the Fijian government:</p>
 			<ul>
-				<li>Fly Pacific Sun from Nadi to Vanua Balavu (neighboring island) which takes about 1 hour. Once one arrives at Vanua Balavu you can take a speed boat to Katafanga which takes about 1 hour.</li>
-				<li>Charter a small plane and fly from Nadi to Vanua Balavu and once there take the speed boat.</li>
-				<li>One can also combine - you can fly Pacific Sun to Vanua Balavu, and have the private plane pick you up for your return at your convenience. Or fly both ways private.</li>
-				<li>Sea Plane: From Nadi you could charter a helicopter or a seaplane and fly directly to Katafanga landing on the water. The flight would take about 2 hours.</li>
+				<li><span>Fly Commercial + Speed Boat:</span> Sun from Nadi to Vanua Balavu (neighboring island) which takes about 1 hour. Once one arrives at Vanua Balavu you can take a speed boat to Katafanga which takes about 1 hour.</li>
+				<li><span>Fly Charter + Speed Boat:</span>A small plane and fly from Nadi to Vanua Balavu and once there take the speed boat.</li>
+				<li><span>Fly Commercial + Fly Private:</span> One can also combine - you can fly Pacific Sun to Vanua Balavu, and have the private plane pick you up for your return at your convenience. Or fly both ways private.</li>
+				<li><span>Sea Plane:</span> From Nadi you could charter a helicopter or a seaplane and fly directly to Katafanga landing on the water. The flight would take about 2 hours.</li>
 			</ul>
 		</div>
 	</section>
@@ -57,6 +57,14 @@
 			color: $text;
 			margin-left: 1rem;
 			margin-bottom: 2rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+			span {
+				font-weight: bold;
+				color: #828282;
+			}
 		}
 	}
 }

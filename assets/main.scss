@@ -103,22 +103,26 @@ body {
 
 #gallery {
 	.grid {
-		.cool-lightbox .cool-lightbox-button {
-			width: 4rem;
-			height: 4rem;
-			padding: 5px;
-			background: rgba(0, 0, 0, .5);
+		.cool-lightbox {
+			background-color: rgba(55, 55, 55, 0.9);
 
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			.cool-lightbox-button {
+				width: 4rem;
+				height: 4rem;
+				padding: 5px;
+				background: rgba(0, 0, 0, .5);
 
-			img {
-				width: 2rem
-			}
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
-			&.cool-lightbox-button--prev {
-				transform: rotate(180deg);
+				img {
+					width: 2rem
+				}
+
+				&.cool-lightbox-button--prev {
+					transform: rotate(180deg);
+				}
 			}
 		}
 	}

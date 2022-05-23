@@ -66,7 +66,7 @@ export default {
 		margin: 2rem;
 
 		color: $white;
-		font-size: 0.8rem;
+		font-size: 0.625rem;
 	}
 	.route {
 		z-index: 2;
@@ -98,7 +98,7 @@ export default {
 			text-transform: uppercase;
 			text-decoration: none;
 			font-family: 'Lato';
-			font-size: 0.8rem;
+			font-size: 0.625rem;
 			font-weight: 400;
 			line-height: 1rem;
 
@@ -127,18 +127,21 @@ export default {
 		letter-spacing: 0.5rem;
 		text-decoration: none;
 		h1 {
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 		}
-		h4 {
-			margin-top: 1rem;
-			font-size: 0.85rem;
-			font-weight: 400;
-			letter-spacing: 0;
-		}
+
 		span {
+			font-size: 0.8rem;
 			margin-top: 0.5rem;
 			font-size: 300;
 			font-weight: 300;
+		}
+		h4 {
+			margin-top: 0.5rem;
+			font-size: 0.625rem;
+
+			font-weight: 400;
+			letter-spacing: 0;
 		}
 	}
 	.btn {

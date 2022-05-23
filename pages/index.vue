@@ -131,7 +131,7 @@ export default {
 		margin: 2rem;
 
 		color: $white;
-		font-size: 0.8rem;
+		font-size: 0.625rem;
 	}
 	.btn {
 		display: none; // only for mobile
@@ -162,7 +162,8 @@ export default {
 			text-transform: uppercase;
 			text-decoration: none;
 			font-family: 'Lato';
-			font-size: 0.8rem;
+			font-size: 0.625rem;
+
 			font-weight: 400;
 			line-height: 1.5rem;
 
@@ -191,18 +192,22 @@ export default {
 		text-transform: uppercase;
 		letter-spacing: 0.5rem;
 		h1 {
-			font-size: 1.5rem;
-		}
-		h4 {
-			margin-top: 1rem;
-			font-size: 0.85rem;
-			font-weight: 400;
-			letter-spacing: 0;
+			font-size: 1.25rem;
 		}
 		span {
+			font-size: 0.8rem;
+
 			margin-top: 0.5rem;
 			font-size: 300;
 			font-weight: 300;
+		}
+		h4 {
+			margin-top: 0.5rem;
+
+			font-size: 0.6rem;
+
+			font-weight: 400;
+			letter-spacing: 0;
 		}
 	}
 	.titles {

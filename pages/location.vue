@@ -1,7 +1,7 @@
 <template>
 	<section id="location">
 		<div class="gmap">
-			<iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=8&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
+			<iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=7&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
 		</div>
 		<div ref="info" class="info">
 			<h2>the island</h2>
@@ -36,7 +36,7 @@
 		height: 1400px;
 		overflow: hidden;
 		iframe {
-			width: 85vw;
+			width: 80vw;
 			height: calc(1400px + 15rem);
 			border: 0;
 			margin-top: -15rem;

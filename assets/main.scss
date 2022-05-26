@@ -104,29 +104,58 @@ body {
 #gallery {
 	.grid {
 		.cool-lightbox {
-
 			.cool-lightbox-button {
-				width: 4rem;
-				height: 4rem;
-				padding: 5px;
-				background: rgba(0, 0, 0, .5);
+				width: 64px;
+				height: 64px;
+				background: rgba(0, 0, 0, .35);
 
 				display: flex;
 				justify-content: center;
 				align-items: center;
 
 				img {
-					width: 2rem
+					width: 24px;
+					height: 24px;
+				}
+
+				&.cool-lightbox-button--next {
+					right: 22%;
+
+					img {
+						margin-right: 15px;
+					}
 				}
 
 				&.cool-lightbox-button--prev {
 					transform: rotate(180deg);
+					left: 22%;
+
+					img {
+						margin-left: 20px;
+					}
 				}
 			}
 		}
 	}
 }
 
+@media (max-width: 1200px) {
+	#gallery {
+		.grid {
+			.cool-lightbox {
+				.cool-lightbox-button {
+					&.cool-lightbox-button--next {
+						right: 0%;
+					}
+
+					&.cool-lightbox-button--prev {
+						left: 0%;
+					}
+				}
+			}
+		}
+	}
+}
 
 .page-enter-active,
 .page-leave-active {

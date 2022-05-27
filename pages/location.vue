@@ -33,11 +33,11 @@
 
 	.gmap {
 		width: 50%;
-		height: 1400px;
+		height: 100%;
 		overflow: hidden;
 		iframe {
 			width: 80vw;
-			height: calc(1400px + 15rem);
+			height: calc(1280px + 15rem);
 			border: 0;
 			margin-top: -15rem;
 		}
@@ -50,18 +50,21 @@
 		p {
 			max-width: 30rem;
 			margin-bottom: 2rem;
+			font-size: 0.85rem;
 		}
 
 		li {
 			max-width: 28rem;
-			color: $text;
 			margin-left: 1rem;
 			margin-bottom: 2rem;
 
+			font-size: 0.85rem;
+			color: $text;
 			&:last-child {
 				margin-bottom: 0;
 			}
 			span {
+				font-size: 0.85rem;
 				font-weight: bold;
 				color: #828282;
 			}

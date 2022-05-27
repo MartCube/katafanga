@@ -77,6 +77,7 @@ export default {
 
 		p {
 			margin-bottom: 1rem;
+			font-size: 0.85rem;
 		}
 		a {
 			border: none;

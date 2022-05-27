@@ -1,10 +1,14 @@
 <template>
 	<section id="gallery">
+		<CoolLightBox style="background-color: rgba(30, 30, 30, 0.75)" :items="allItems" :index="index" @close="index = null">
+			<template #icon-next>
+				<nuxt-img src="/icons/arrow.svg" />
+			</template>
+			<template #icon-previous>
+				<nuxt-img src="/icons/arrow.svg" />
+			</template>
+		</CoolLightBox>
 		<div class="grid">
-			<CoolLightBox style="background-color: rgba(30, 30, 30, 0.75)" :items="allItems" :index="index" @close="index = null">
-				<template #icon-next> <nuxt-img src="/icons/arrow.svg" /> </template>
-				<template #icon-previous> <nuxt-img src="/icons/arrow.svg" /> </template>
-			</CoolLightBox>
 			<nuxt-img v-for="(item, i) in items" :key="i" :src="item" class="lazyload" @click="index = i" />
 			<template v-if="show">
 				<nuxt-img v-for="(item, i) in moreItems" :key="i" :src="item" class="lazyload" @click="index = i + 8" />

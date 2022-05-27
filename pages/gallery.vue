@@ -1,6 +1,6 @@
 <template>
 	<section id="gallery">
-		<CoolLightBox style="background-color: rgba(30, 30, 30, 0.75)" :items="allItems" :index="index" @close="index = null">
+		<CoolLightBox :effect="'fade'" style="background-color: rgba(30, 30, 30, 0.75)" :items="allItems" :index="index" @close="index = null">
 			<template #icon-next>
 				<nuxt-img src="/icons/arrow.svg" />
 			</template>

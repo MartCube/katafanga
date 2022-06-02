@@ -33,37 +33,37 @@
 			</div>
 		</div>
 		<div ref="info" class="info">
-			<div class="wrap">
+			<div class="wrap region">
 				<nuxt-img src="/icons/region.svg" />
-				<div>
+				<div class="text">
 					<h4>region:</h4>
 					<p>Fiji, South Pacific</p>
 				</div>
 			</div>
-			<div class="wrap">
+			<div class="wrap location">
 				<nuxt-img src="/icons/location.svg" />
-				<div>
+				<div class="text">
 					<h4>location:</h4>
 					<p>Lau Group in Eastern Fiji</p>
 				</div>
 			</div>
 			<div class="wrap">
 				<nuxt-img src="/icons/size.svg" />
-				<div>
+				<div class="text">
 					<h4>size:</h4>
 					<p>225.00 Acres</p>
 				</div>
 			</div>
 			<div class="wrap">
 				<nuxt-img src="/icons/title.svg" />
-				<div>
+				<div class="text">
 					<h4>title:</h4>
 					<p>Freehold</p>
 				</div>
 			</div>
 			<div class="wrap">
 				<nuxt-img src="/icons/price.svg" />
-				<div>
+				<div class="text">
 					<h4>price:</h4>
 					<p>Upon request</p>
 				</div>
@@ -269,7 +269,7 @@ export default {
 			margin-right: 3rem;
 
 			display: flex;
-			justify-content: center;
+			justify-content: space-between;
 			align-items: center;
 			z-index: 2;
 			color: $black;
@@ -281,12 +281,14 @@ export default {
 				margin-right: 1rem;
 			}
 
-			h4 {
-				text-transform: capitalize;
-			}
-			p {
-				font-size: 0.8rem;
-				color: black;
+			.text {
+				h4 {
+					text-transform: capitalize;
+				}
+				p {
+					font-size: 0.8rem;
+					color: black;
+				}
 			}
 		}
 	}
@@ -338,14 +340,41 @@ export default {
 			height: fit-content;
 			flex-wrap: wrap;
 			justify-content: space-between;
-
+			padding: 1rem 0;
 			.wrap {
-				padding: 1rem;
-				width: 50%;
+				padding: 0.5rem;
 				margin: 0;
-				justify-content: flex-start;
-				&:nth-child(5) {
-					display: none;
+				width: fit-content;
+				display: flex;
+				justify-items: center;
+				justify-content: center;
+
+				.text {
+					h4 {
+						font-size: 0.75rem;
+					}
+					p {
+						font-size: 0.625rem;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 400px) {
+	#intro {
+		.info {
+			.wrap {
+				img {
+					margin-right: 0.5rem;
+				}
+				&.region {
+					width: 45%;
+					// justify-content: space-between;
+				}
+				&.location {
+					width: 55%;
+					// justify-content: space-between;
 				}
 			}
 		}

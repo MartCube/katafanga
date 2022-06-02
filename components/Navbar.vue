@@ -186,6 +186,15 @@ export default {
 		}
 		.btn {
 			display: initial;
+			z-index: 4;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.navbar {
+		.route {
+			font-size: 2rem;
 		}
 	}
 }

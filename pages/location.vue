@@ -78,10 +78,11 @@
 
 		flex-direction: column-reverse;
 		.gmap {
-			width: 100%;
+			width: 100vw;
 			height: 50vh;
 			iframe {
-				width: 100%;
+				width: 150vw;
+				height: 800px;
 			}
 		}
 		.info {

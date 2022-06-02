@@ -3,7 +3,7 @@ export default {
 	loading: { color: '#c5a37d' },
 	css: ['~/assets/main.scss'],
 	trailingSlash: true,
-	components: ['~/components/global', '~/components/sections'],
+	components: true,
 
 	head: {
 		title: 'Katafanga Island',

@@ -51,19 +51,19 @@ export default {
 	flex-wrap: wrap;
 	background: $bg;
 
-	padding: 6rem 0;
+	padding: 2rem 0;
 	h2 {
 		width: 100%;
 		text-align: center;
 	}
 
 	.doc {
-		margin: 0 4rem;
+		margin: 0 2rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 
-		width: 20rem;
+		width: 22rem;
 		text-align: center;
 		span {
 			display: block;
@@ -133,8 +133,12 @@ export default {
 	#documents {
 		flex-direction: column;
 		align-items: center;
-		.doc a {
-			margin-bottom: 6rem;
+		.doc {
+			margin: 0;
+			width: 80%;
+			a {
+				margin-bottom: 6rem;
+			}
 		}
 	}
 }

@@ -12,7 +12,7 @@
 			<NuxtLink to="/documents/">documents</NuxtLink>
 			<NuxtLink to="/contact/">contact</NuxtLink>
 		</div>
-		<div class="btn" @click="ToggleMenu">
+		<div ref="btn" class="btn" @click="ToggleMenu">
 			<nuxt-img v-if="showMenu" src="/icons/xmark.svg" />
 			<nuxt-img v-else src="/icons/bars.svg" />
 		</div>
@@ -107,7 +107,7 @@ export default {
 	mounted() {
 		const images = document.querySelectorAll('#intro .grid .image')
 		const titles = document.querySelectorAll('#intro .titles .box .title')
-		introAnim(this.$refs.logo, this.$refs.links, this.$refs.info, titles, images)
+		introAnim(this.$refs.logo, this.$refs.btn, this.$refs.links, this.$refs.info, titles, images)
 	},
 	methods: {
 		ToggleMenu() {
@@ -120,7 +120,7 @@ export default {
 <style lang="scss" scoped>
 #intro {
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	position: relative;
 	overflow: hidden;
 
@@ -318,13 +318,15 @@ export default {
 			&.menu {
 				z-index: 2;
 				width: 100%;
-				height: 100vh;
+				height: 100%;
 				background: $white;
+				overflow: hidden;
 
 				display: flex;
 				flex-direction: column;
 				justify-content: space-evenly;
 				a {
+					font-size: 1rem;
 					margin: 0;
 					color: $black;
 				}

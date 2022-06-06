@@ -1,6 +1,6 @@
 import anime from 'animejs'
 
-export function introAnim(logo, navbar, info, title, images) {
+export function introAnim(logo, btn, navbar, info, title, images) {
 	const StartUpTimeline = anime.timeline({
 		autoplay: true,
 	})
@@ -15,6 +15,15 @@ export function introAnim(logo, navbar, info, title, images) {
 		},
 		750,
 	)
+		.add(
+			{
+				targets: btn,
+				opacity: [0, '100%'],
+				easing: 'easeOutCubic',
+				duration: 1250,
+			},
+			2000,
+		)
 		.add(
 			{
 				targets: navbar,

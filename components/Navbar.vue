@@ -179,6 +179,7 @@ export default {
 				justify-content: space-evenly;
 				align-items: center;
 				a {
+					font-size: 1rem;
 					margin: 0;
 					color: $black;
 				}

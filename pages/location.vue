@@ -1,7 +1,8 @@
 <template>
 	<section id="location">
 		<div class="gmap">
-			<iframe loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=7&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
+			<iframe class="desktop" loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=7&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
+			<iframe class="mobile" loading="lazy" src="https://www.google.com/maps/embed/v1/place?zoom=6&q=place_id:ChIJkUs7X9HN5nERaD-UmmcOhNc&key=AIzaSyDuP85vNlSIT1oXM9v194G-VfA3iI1W1oQ"></iframe>
 		</div>
 		<div ref="info" class="info">
 			<h2>the island</h2>
@@ -40,6 +41,10 @@
 			height: calc(1280px + 15rem);
 			border: 0;
 			margin-top: -15rem;
+
+			&.mobile {
+				display: none;
+			}
 		}
 	}
 
@@ -81,8 +86,14 @@
 			width: 100vw;
 			height: 50vh;
 			iframe {
-				width: 150vw;
-				height: 800px;
+				width: 100vw;
+				height: 100vh;
+				&.mobile {
+					display: initial;
+				}
+				&.desktop {
+					display: none;
+				}
 			}
 		}
 		.info {

@@ -153,6 +153,7 @@ export default {
 		right: 3rem;
 
 		width: 2rem;
+		height: 2rem;
 	}
 }
 

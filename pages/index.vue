@@ -143,6 +143,9 @@ export default {
 		right: 3rem;
 
 		width: 2rem;
+		img {
+			widows: 2rem;
+		}
 	}
 
 	.links {

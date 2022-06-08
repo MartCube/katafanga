@@ -340,7 +340,11 @@ export default {
 			}
 		}
 		.btn {
-			display: flex;
+			display: initial;
+			img {
+				width: 32px;
+				height: 32px;
+			}
 		}
 		.logo {
 			width: max-content;

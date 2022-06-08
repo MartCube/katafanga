@@ -188,7 +188,7 @@ export default {
 			}
 		}
 		.btn {
-			display: flex;
+			display: initial;
 			.x {
 				position: fixed;
 			}

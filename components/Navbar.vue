@@ -15,7 +15,7 @@
 		</div>
 		<div class="coordinates">17.5167° S, 178.7167° W</div>
 		<div class="btn" @click="ToggleMenu">
-			<nuxt-img v-if="showMenu" src="/icons/xmark.svg" />
+			<nuxt-img v-if="showMenu" class="x" src="/icons/xmark.svg" />
 			<nuxt-img v-else src="/icons/bars.svg" />
 		</div>
 		<h1 class="route">{{ routeTitle }}</h1>
@@ -147,7 +147,7 @@ export default {
 	.btn {
 		display: none; // only for mobile
 
-		z-index: 3;
+		z-index: 5;
 		position: absolute;
 		top: 3rem;
 		right: 3rem;
@@ -167,13 +167,14 @@ export default {
 		.links {
 			width: 100%;
 			display: none;
+			position: fixed;
 
 			&.menu {
-				z-index: 4;
+				z-index: 5;
 				width: 100%;
 				height: 100vh;
 				background: $white;
-
+				overflow: hidden;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-evenly;
@@ -187,7 +188,9 @@ export default {
 		}
 		.btn {
 			display: initial;
-			z-index: 4;
+			.x {
+				position: fixed;
+			}
 		}
 	}
 }

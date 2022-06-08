@@ -13,7 +13,7 @@
 			<NuxtLink to="/contact/">contact</NuxtLink>
 		</div>
 		<div ref="btn" class="btn" @click="ToggleMenu">
-			<nuxt-img v-if="showMenu" src="/icons/xmark.svg" />
+			<nuxt-img v-if="showMenu" class="x" src="/icons/xmark.svg" />
 			<nuxt-img v-else src="/icons/bars.svg" />
 		</div>
 		<div ref="logo" class="logo">
@@ -136,7 +136,8 @@ export default {
 	.btn {
 		display: none; // only for mobile
 
-		z-index: 3;
+		z-index: 5;
+
 		position: absolute;
 		top: 3rem;
 		right: 3rem;
@@ -297,6 +298,7 @@ export default {
 	#intro {
 		flex-direction: column;
 		padding: 0;
+		height: 95vh;
 		.coordinates {
 			display: none;
 		}
@@ -316,6 +318,7 @@ export default {
 		.links {
 			display: none;
 			&.menu {
+				position: absolute;
 				z-index: 2;
 				width: 100%;
 				height: 100%;

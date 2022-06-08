@@ -298,7 +298,8 @@ export default {
 	#intro {
 		flex-direction: column;
 		padding: 0;
-		height: 95vh;
+		min-height: initial;
+		height: calc(100vh - 3rem);
 		.coordinates {
 			display: none;
 		}

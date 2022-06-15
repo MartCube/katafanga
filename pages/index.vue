@@ -30,7 +30,6 @@
 			</div>
 			<div class="box">
 				<h3 class="title">for sale</h3>
-				<div class="test">{{ test }}</div>
 			</div>
 		</div>
 		<div ref="info" class="info">
@@ -88,7 +87,6 @@ export default {
 	// },
 	layout: 'home',
 	data: () => ({
-		test: null,
 		showMenu: false,
 		settings: {
 			arrows: false,
@@ -116,9 +114,7 @@ export default {
 
 		// mobile full height without bar
 		const ref = this.$refs.intro
-		this.test = window.screen.availHeight + '-innerHeight' + window.innerHeight
-		if (window.screen.availWidth < 1100) ref.style.height = window.screen.availHeight + 'px'
-		console.log(window.screen.availHeight + 'px')
+		ref.style.height = window.innerHeight + 'px'
 	},
 	methods: {
 		ToggleMenu() {

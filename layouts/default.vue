@@ -8,6 +8,8 @@
 
 <style lang="scss" scoped>
 .default {
+	display: flex;
+	flex-direction: column;
 	overflow: hidden;
 }
 </style>

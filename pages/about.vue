@@ -53,7 +53,7 @@
 	}
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
 	.about {
 		flex-direction: column;
 		padding: 4rem 5%;

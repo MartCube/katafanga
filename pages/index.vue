@@ -116,7 +116,8 @@ export default {
 
 		// mobile full height without bar
 		const ref = this.$refs.intro
-		ref.style.height = window.outerHeight = window.screen.availHeight
+		// ref.style.height = window.outerHeight = window.screen.availHeight
+		ref.style.height = window.outerHeight = window.innerHeight
 	},
 	methods: {
 		ToggleMenu() {

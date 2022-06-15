@@ -1,12 +1,12 @@
 <template>
-	<div class="policy">
+	<div class="footer">
 		<span>© 2022 The islander Group companies, Ltd, Suva, Fiji</span>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.policy {
-	bottom: 0;
+.footer {
+	bottom: 3rem;
 	width: 100%;
 	height: 3rem;
 

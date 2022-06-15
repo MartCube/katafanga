@@ -68,6 +68,9 @@
 					<p>Upon request</p>
 				</div>
 			</div>
+			<div class="policy">
+				<span>© 2022 The islander Group companies, Ltd, Suva, Fiji</span>
+			</div>
 			<div class="bg"></div>
 		</div>
 	</div>
@@ -104,11 +107,7 @@ export default {
 		},
 		images: ['intro.jpg', 'gallery/4.jpg', 'gallery/10.jpg'],
 	}),
-	computed: {
-		mobileHeight() {
-			return (window.outerHeight = window.screen.availHeight)
-		},
-	},
+
 	mounted() {
 		const images = document.querySelectorAll('#intro .grid .image')
 		const titles = document.querySelectorAll('#intro .titles .box .title')
@@ -116,8 +115,7 @@ export default {
 
 		// mobile full height without bar
 		const ref = this.$refs.intro
-		// ref.style.height = window.outerHeight = window.screen.availHeight
-		ref.style.height = window.outerHeight = window.innerHeight
+		if (window.screen.availWidth < 1100) ref.style.height = window.screen.availHeight + 'px'
 	},
 	methods: {
 		ToggleMenu() {
@@ -130,7 +128,6 @@ export default {
 <style lang="scss" scoped>
 #intro {
 	width: 100%;
-	min-height: 100vh;
 	position: relative;
 	overflow: hidden;
 
@@ -265,11 +262,11 @@ export default {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-		height: 6rem;
 
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		flex-wrap: wrap;
 
 		.bg {
 			position: absolute;
@@ -280,7 +277,7 @@ export default {
 		}
 
 		.wrap {
-			margin-right: 3rem;
+			margin: 1rem 1rem 1rem 3rem;
 
 			display: flex;
 			justify-content: space-between;
@@ -304,6 +301,21 @@ export default {
 					color: black;
 				}
 			}
+		}
+
+		.policy {
+			width: 100vw;
+			height: 3rem;
+
+			background: $white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			font-family: 'Lato';
+			font-size: 0.8rem;
+			line-height: 1.5rem;
+			color: $black;
 		}
 	}
 }
@@ -361,9 +373,8 @@ export default {
 		}
 		.info {
 			height: fit-content;
-			flex-wrap: wrap;
 			justify-content: space-between;
-			padding: 1rem 0;
+			padding-top: 1rem;
 			.wrap {
 				padding: 0.5rem;
 				margin: 0;

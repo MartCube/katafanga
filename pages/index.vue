@@ -1,8 +1,8 @@
 <template>
 	<div id="intro" ref="intro">
-		<VueSlickCarousel v-bind="settings" ref="bg" class="bg">
+		<!-- <VueSlickCarousel v-bind="settings" ref="bg" class="bg">
 			<nuxt-img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" />
-		</VueSlickCarousel>
+		</VueSlickCarousel> -->
 		<div class="coordinates">17.5167° S, 178.7167° W</div>
 		<div ref="links" class="links" :class="{ menu: showMenu }">
 			<NuxtLink to="/">home</NuxtLink>
@@ -77,14 +77,14 @@
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
+// import VueSlickCarousel from 'vue-slick-carousel'
 import { introAnim } from '~/assets/anime'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 
 export default {
-	components: {
-		VueSlickCarousel,
-	},
+	// components: {
+	// 	VueSlickCarousel,
+	// },
 	layout: 'home',
 	data: () => ({
 		showMenu: false,
@@ -130,6 +130,7 @@ export default {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+	background: #000;
 
 	.coordinates {
 		position: absolute;

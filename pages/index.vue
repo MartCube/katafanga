@@ -129,6 +129,7 @@ export default {
 <style lang="scss" scoped>
 #intro {
 	width: 100%;
+	min-height: -webkit-fill-available;
 	position: relative;
 	overflow: hidden;
 	background: #000;

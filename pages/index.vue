@@ -1,5 +1,5 @@
 <template>
-	<div id="intro">
+	<div id="intro" ref="intro">
 		<VueSlickCarousel v-bind="settings" ref="bg" class="bg">
 			<nuxt-img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" />
 		</VueSlickCarousel>
@@ -104,10 +104,19 @@ export default {
 		},
 		images: ['intro.jpg', 'gallery/4.jpg', 'gallery/10.jpg'],
 	}),
+	computed: {
+		mobileHeight() {
+			return (window.outerHeight = window.screen.availHeight)
+		},
+	},
 	mounted() {
 		const images = document.querySelectorAll('#intro .grid .image')
 		const titles = document.querySelectorAll('#intro .titles .box .title')
 		introAnim(this.$refs.logo, this.$refs.btn, this.$refs.links, this.$refs.info, titles, images)
+
+		// mobile full height without bar
+		const ref = this.$refs.intro
+		ref.style.height = window.outerHeight = window.screen.availHeight
 	},
 	methods: {
 		ToggleMenu() {

@@ -104,46 +104,46 @@ body {
 	}
 }
 
-#gallery {
+// #gallery {
 
-	.cool-lightbox {
-		.cool-lightbox-button {
-			width: 64px;
-			height: 64px;
-			padding: 0;
-			background: rgba(0, 0, 0, .35);
+// 	.cool-lightbox {
+// 		.cool-lightbox-button {
+// 			width: 64px;
+// 			height: 64px;
+// 			padding: 0;
+// 			background: rgba(0, 0, 0, .35);
 
-			display: flex;
-			justify-content: center;
-			align-items: center;
+// 			display: flex;
+// 			justify-content: center;
+// 			align-items: center;
 
-			img {
-				width: 24px;
-				height: 24px;
-			}
+// 			img {
+// 				width: 24px;
+// 				height: 24px;
+// 			}
 
-			&.cool-lightbox-button--next {
-				right: 50%;
-				transform: translateX(538px);
+// 			&.cool-lightbox-button--next {
+// 				right: 50%;
+// 				transform: translateX(538px);
 
-				img {
-					margin-left: 6px;
-				}
-			}
+// 				img {
+// 					margin-left: 6px;
+// 				}
+// 			}
 
-			&.cool-lightbox-button--prev {
-				transform: translateX(-538px);
-				left: 50%;
+// 			&.cool-lightbox-button--prev {
+// 				transform: translateX(-538px);
+// 				left: 50%;
 
-				img {
-					transform: rotate(180deg);
-					margin-right: 6px;
-				}
-			}
-		}
-	}
+// 				img {
+// 					transform: rotate(180deg);
+// 					margin-right: 6px;
+// 				}
+// 			}
+// 		}
+// 	}
 
-}
+// }
 
 @media (max-width: 1200px) {
 	#gallery {

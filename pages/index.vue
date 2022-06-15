@@ -116,6 +116,7 @@ export default {
 		// mobile full height without bar
 		const ref = this.$refs.intro
 		if (window.screen.availWidth < 1100) ref.style.height = window.screen.availHeight + 'px'
+		console.log(window.screen.availHeight + 'px')
 	},
 	methods: {
 		ToggleMenu() {

@@ -324,7 +324,6 @@ export default {
 		flex-direction: column;
 		padding: 0;
 		min-height: initial;
-		height: calc(100vh - 3rem);
 		.coordinates {
 			display: none;
 		}
@@ -372,7 +371,6 @@ export default {
 			width: max-content;
 		}
 		.info {
-			height: fit-content;
 			justify-content: space-between;
 			padding-top: 1rem;
 			.wrap {

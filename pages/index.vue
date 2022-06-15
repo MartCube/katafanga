@@ -77,14 +77,14 @@
 </template>
 
 <script>
-// import VueSlickCarousel from 'vue-slick-carousel'
+import VueSlickCarousel from 'vue-slick-carousel'
 import { introAnim } from '~/assets/anime'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 
 export default {
-	// components: {
-	// 	VueSlickCarousel,
-	// },
+	components: {
+		VueSlickCarousel,
+	},
 	layout: 'home',
 	data: () => ({
 		showMenu: false,
@@ -130,7 +130,6 @@ export default {
 	// min-height: -webkit-fill-available;
 	position: relative;
 	overflow: hidden;
-	background: #000;
 
 	.coordinates {
 		position: absolute;

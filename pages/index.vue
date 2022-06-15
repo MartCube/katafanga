@@ -1,8 +1,8 @@
 <template>
 	<div id="intro" ref="intro">
-		<!-- <VueSlickCarousel v-bind="settings" ref="bg" class="bg">
+		<VueSlickCarousel v-bind="settings" ref="bg" class="bg">
 			<nuxt-img v-for="(image, imageIndex) in images" :key="imageIndex" :src="image" />
-		</VueSlickCarousel> -->
+		</VueSlickCarousel>
 		<div class="coordinates">17.5167° S, 178.7167° W</div>
 		<div ref="links" class="links" :class="{ menu: showMenu }">
 			<NuxtLink to="/">home</NuxtLink>

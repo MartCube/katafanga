@@ -116,7 +116,8 @@ export default {
 
 		// mobile full height without bar
 		const ref = this.$refs.intro
-		this.test = window.screen.availHeight
+		this.test = window.screen.availHeight + '' + window.innerHeight
+		console.log(test)
 		if (window.screen.availWidth < 1100) ref.style.height = window.screen.availHeight + 'px'
 		console.log(window.screen.availHeight + 'px')
 	},

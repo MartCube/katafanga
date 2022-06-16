@@ -61,7 +61,7 @@ module.exports = {
 			{
 				ignoreWhenNoAttributes: true,
 				ignoreWhenEmpty: true,
-				ignores: [ 'n-link', 'nuxt-link', 'span', 'a', 'label', 'btn', 'h2', 'p', 'div'],
+				ignores: ['button', 'n-link', 'nuxt-link', 'span', 'a', 'label', 'btn', 'h2', 'p', 'div'],
 			},
 		],
 	},

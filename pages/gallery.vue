@@ -1,31 +1,20 @@
 <template>
 	<section id="gallery">
-		<CoolLightBox :slideshow="false" style="background-color: rgba(30, 30, 30, 0.75)" :items="allItems" :index="index" @close="index = null">
-			<template #icon-next>
-				<nuxt-img src="/icons/arrow.svg" />
-			</template>
-			<template #icon-previous>
-				<nuxt-img src="/icons/arrow.svg" />
-			</template>
-		</CoolLightBox>
-		<div class="grid">
-			<nuxt-img v-for="(item, i) in items" :key="i" :src="item" class="lazyload" @click="index = i" />
-			<template v-if="show">
-				<nuxt-img v-for="(item, i) in moreItems" :key="i" :src="item" class="lazyload" @click="index = i + 8" />
-			</template>
-			<button v-if="!show" @click="show = true">view more</button>
+		<div id="lightgallery" class="grid">
+			<a v-for="(item, i) in items" :key="i" :href="item">
+				<nuxt-img :src="item" class="lazyload" />
+			</a>
+
+			<a v-for="(item, i) in moreItems" v-show="show" :key="i" :href="item">
+				<nuxt-img :src="item" class="lazyload" />
+			</a>
 		</div>
+		<button v-if="!show" @click="show = true">view more</button>
 	</section>
 </template>
 
 <script>
-import CoolLightBox from 'vue-cool-lightbox'
-import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
-
 export default {
-	components: {
-		CoolLightBox,
-	},
 	data: () => ({
 		show: false,
 		index: null,
@@ -33,6 +22,10 @@ export default {
 		moreItems: ['/gallery/9.jpg', '/gallery/10.jpg', '/gallery/11.jpg', '/gallery/12.jpg'],
 		allItems: ['/gallery/1.jpg', '/gallery/2.jpg', '/gallery/3.jpg', '/gallery/4.jpg', '/gallery/5.jpg', '/gallery/6.jpg', '/gallery/7.jpg', '/gallery/8.jpg', '/gallery/9.jpg', '/gallery/10.jpg', '/gallery/11.jpg', '/gallery/12.jpg'],
 	}),
+	mounted() {
+		const el = document.getElementById('lightgallery')
+		window.lightGallery(el, { download: false })
+	},
 }
 </script>
 
@@ -40,7 +33,9 @@ export default {
 #gallery {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	padding: 2rem 0;
 	background: $light-grey;
 
@@ -50,35 +45,39 @@ export default {
 		display: flex;
 		flex-wrap: wrap;
 
-		img {
-			width: 20%;
+		a {
+			max-width: 300px;
 			margin: 2.5%;
-			transition: all 0.2s ease;
-			&:hover {
-				cursor: pointer;
-				filter: brightness(50%);
+
+			img {
+				width: 100%;
+				transition: all 0.2s ease;
+				&:hover {
+					cursor: pointer;
+					filter: brightness(50%);
+				}
 			}
 		}
-		button {
-			margin: 0 auto;
-			width: 15rem;
-			height: 4rem;
-			border: none;
-			background: $white;
+	}
+	button {
+		margin: 0 auto;
+		width: 15rem;
+		height: 4rem;
+		border: none;
+		background: $white;
 
-			text-transform: uppercase;
-			color: $text;
-			letter-spacing: 0.1rem;
-			font-family: 'Lato';
-			font-size: 1rem;
-			line-height: 1.5rem;
-			font-weight: 400;
+		text-transform: uppercase;
+		color: $text;
+		letter-spacing: 0.1rem;
+		font-family: 'Lato';
+		font-size: 1rem;
+		line-height: 1.5rem;
+		font-weight: 400;
 
-			&:hover {
-				transition: all 0.2s ease;
-				cursor: pointer;
-				color: $black;
-			}
+		&:hover {
+			transition: all 0.2s ease;
+			cursor: pointer;
+			color: $black;
 		}
 	}
 }
@@ -86,12 +85,13 @@ export default {
 @media (max-width: 800px) {
 	#gallery {
 		flex-direction: column;
-		padding: 0;
+		padding: 2rem 0;
 		.grid {
 			width: 100%;
-			img {
-				width: 40%;
-				margin: 5%;
+			align-items: center;
+			justify-content: center;
+			a {
+				margin: 2rem 0;
 			}
 		}
 	}

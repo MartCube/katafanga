@@ -14,7 +14,7 @@ export default {
 		link: [{ rel: 'icon', type: 'png', href: '/favicon.png' }],
 	},
 
-	plugins: [{ src: '@/plugins/vee-validate.js' }],
+	plugins: [{ src: '@/plugins/vee-validate.js' }, { src: '~/plugins/lightgallery.client.js', ssr: false }],
 
 	buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/style-resources', 'nuxt-lazysizes', '@nuxt/image'],
 	styleResources: { scss: ['./assets/colors.scss'] },

@@ -104,70 +104,8 @@ body {
 	}
 }
 
-// #gallery {
 
-// 	.cool-lightbox {
-// 		.cool-lightbox-button {
-// 			width: 64px;
-// 			height: 64px;
-// 			padding: 0;
-// 			background: rgba(0, 0, 0, .35);
 
-// 			display: flex;
-// 			justify-content: center;
-// 			align-items: center;
-
-// 			img {
-// 				width: 24px;
-// 				height: 24px;
-// 			}
-
-// 			&.cool-lightbox-button--next {
-// 				right: 50%;
-// 				transform: translateX(538px);
-
-// 				img {
-// 					margin-left: 6px;
-// 				}
-// 			}
-
-// 			&.cool-lightbox-button--prev {
-// 				transform: translateX(-538px);
-// 				left: 50%;
-
-// 				img {
-// 					transform: rotate(180deg);
-// 					margin-right: 6px;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// }
-
-@media (max-width: 1200px) {
-	#gallery {
-		.cool-lightbox {
-			.cool-lightbox-button {
-				&.cool-lightbox-button--next {
-					right: 0%;
-					transform: initial;
-				}
-
-				&.cool-lightbox-button--prev {
-					left: 0%;
-					transform: initial;
-
-					img {
-						margin-left: 8px;
-
-					}
-
-				}
-			}
-		}
-	}
-}
 
 .page-enter-active,
 .page-leave-active {

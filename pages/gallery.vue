@@ -51,7 +51,7 @@ export default {
 
 		a {
 			max-width: 300px;
-			margin: 2.5%;
+			margin: 1rem;
 
 			img {
 				width: 100%;

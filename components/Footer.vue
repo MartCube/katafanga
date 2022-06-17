@@ -44,11 +44,9 @@
 <style lang="scss" scoped>
 .info {
 	z-index: 1;
-	// transform: translateY(100%); // anime
-
 	user-select: none;
-
 	width: 100%;
+	background: $light-grey;
 
 	display: flex;
 	justify-content: center;

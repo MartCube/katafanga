@@ -39,6 +39,10 @@ export default {
 	padding: 2rem 0;
 	background: $light-grey;
 
+	#lightgallery {
+		justify-content: center;
+	}
+
 	.grid {
 		width: 100%;
 		max-width: 100rem;

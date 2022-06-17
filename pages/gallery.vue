@@ -89,14 +89,12 @@ export default {
 @media (max-width: 800px) {
 	#gallery {
 		flex-direction: column;
+
 		padding: 2rem 0;
 		.grid {
 			width: 100%;
 			align-items: center;
 			justify-content: center;
-			a {
-				margin: 2rem 0;
-			}
 		}
 	}
 }

@@ -149,12 +149,9 @@ export default {
 		top: 3rem;
 		right: 3rem;
 
-		width: 2rem;
-		img {
-			widows: 2rem;
-		}
+		width: 1.5rem;
+		height: 1.5rem;
 	}
-
 	.links {
 		z-index: 1;
 		transform: translateY(-100%); // anime
@@ -343,9 +340,12 @@ export default {
 		.links {
 			display: none;
 			&.menu {
-				position: absolute;
+				position: fixed;
+				left: 65%;
+				padding-top: 10%;
+
 				z-index: 2;
-				width: 100%;
+				width: 35%;
 				height: 100%;
 				background: $white;
 				overflow: hidden;
@@ -353,6 +353,7 @@ export default {
 				display: flex;
 				flex-direction: column;
 				justify-content: space-evenly;
+				align-items: center;
 				a {
 					font-size: 1rem;
 					margin: 0;
@@ -362,10 +363,6 @@ export default {
 		}
 		.btn {
 			display: initial;
-			img {
-				width: 32px;
-				height: 32px;
-			}
 		}
 		.logo {
 			width: max-content;

@@ -152,8 +152,8 @@ export default {
 		top: 3rem;
 		right: 3rem;
 
-		width: 2rem;
-		height: 2rem;
+		width: 1.5rem;
+		height: 1.5rem;
 	}
 }
 
@@ -166,16 +166,18 @@ export default {
 			font-size: 3rem;
 		}
 		.links {
-			width: 100%;
 			display: none;
-			position: fixed;
-
 			&.menu {
+				position: fixed;
+				left: 65%;
+				padding-top: 10%;
+
 				z-index: 5;
-				width: 100%;
+				width: 35%;
 				height: 100vh;
 				background: $white;
 				overflow: hidden;
+
 				display: flex;
 				flex-direction: column;
 				justify-content: space-evenly;

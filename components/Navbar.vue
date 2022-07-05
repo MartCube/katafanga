@@ -157,7 +157,7 @@ export default {
 	}
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1050px) {
 	.navbar {
 		.coordinates {
 			display: none;
@@ -170,7 +170,6 @@ export default {
 			&.menu {
 				position: fixed;
 				left: 65%;
-				padding-top: 10%;
 
 				z-index: 5;
 				width: 35%;

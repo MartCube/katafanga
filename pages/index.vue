@@ -316,7 +316,7 @@ export default {
 		}
 	}
 }
-@media (max-width: 1100px) {
+@media (max-width: 1050px) {
 	#intro {
 		flex-direction: column;
 		padding: 0;
@@ -342,7 +342,6 @@ export default {
 			&.menu {
 				position: fixed;
 				left: 65%;
-				padding-top: 10%;
 
 				z-index: 2;
 				width: 35%;

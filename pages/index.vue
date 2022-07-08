@@ -339,13 +339,14 @@ export default {
 		}
 		.links {
 			display: none;
+			padding-top: 6rem;
+			padding-bottom: 2rem;
 			&.menu {
 				position: fixed;
 				left: 65%;
 
 				z-index: 2;
 				width: 35%;
-				height: 100%;
 				background: $white;
 				overflow: hidden;
 
@@ -355,7 +356,7 @@ export default {
 				align-items: center;
 				a {
 					font-size: 1rem;
-					margin: 0;
+					margin: 1rem;
 					color: $black;
 				}
 			}
@@ -391,6 +392,12 @@ export default {
 }
 @media (max-width: 600px) {
 	#intro {
+		.links {
+			&.menu {
+				left: 55%;
+				width: 45%;
+			}
+		}
 		.info {
 			.wrap {
 				img {

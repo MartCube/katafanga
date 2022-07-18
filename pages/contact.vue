@@ -32,7 +32,7 @@ export default {
 		ValidationObserver,
 	},
 	data: () => ({
-		sent: false,
+		sent: true,
 		form: {
 			email: '',
 			firstName: '',
@@ -54,7 +54,6 @@ export default {
 	methods: {
 		async Submit() {
 			const isValid = await this.$refs.validation.validate()
-			console.log(this.form.number, this.result)
 
 			if (!isValid) return
 			if (this.form.number !== this.result) return
@@ -104,7 +103,7 @@ export default {
 #contact {
 	width: 100%;
 	height: 100%;
-	min-height: 100%;
+	min-height: 100vh;
 	padding-top: 4rem;
 
 	display: flex;

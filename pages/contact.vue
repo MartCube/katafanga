@@ -32,7 +32,7 @@ export default {
 		ValidationObserver,
 	},
 	data: () => ({
-		sent: true,
+		sent: false,
 		form: {
 			email: '',
 			firstName: '',
@@ -103,7 +103,7 @@ export default {
 #contact {
 	width: 100%;
 	height: 100%;
-	min-height: 100vh;
+	// min-height: 100vh;
 	padding-top: 4rem;
 
 	display: flex;
@@ -161,6 +161,7 @@ export default {
 
 	.message {
 		width: 90%;
+		min-height: 40vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
